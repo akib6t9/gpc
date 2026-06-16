@@ -1,137 +1,2774 @@
-<!doctype html>
-<html lang="bn">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Ghoshkanda Pre-Cadet and High School</title>
-  <link rel="stylesheet" href="assets/style.css">
+<meta name="description"
+content="Free Call Bridge Calculator. Calculate scores instantly online.">
+<meta name="google-site-verification" content="SE3bBbEuGrQRut0m_eEtrPzqtsgE8ZqHnMY8Y7ayMoU" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Call Bridge Calculator Pro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+<style>
+/* ─── THEMES ─── */
+:root{
+    --primary:#4f46e5;--primary-hover:#4338ca;
+    --bg-color:#f3f4f6;--card-bg:#ffffff;
+    --text-main:#1f2937;--text-muted:#6b7280;--border-color:#e5e7eb;
+    --warning:#f59e0b;--danger:#ef4444;--success:#10b981;
+    --shadow:0 10px 15px -3px rgba(0,0,0,.1),0 4px 6px -2px rgba(0,0,0,.05);
+    --radius:18px;--header-grad:linear-gradient(135deg,#4f46e5,#8b5cf6);
+}
+[data-theme="dark"]{--bg-color:#111827;--card-bg:#1f2937;--text-main:#f9fafb;--text-muted:#9ca3af;--border-color:#374151;--header-grad:linear-gradient(135deg,#374151,#111827);}
+[data-theme="ocean"]{--primary:#0ea5e9;--primary-hover:#0284c7;--bg-color:#f0f9ff;--card-bg:#fff;--text-main:#0c4a6e;--text-muted:#64748b;--border-color:#bae6fd;--success:#06b6d4;--header-grad:linear-gradient(135deg,#0ea5e9,#06b6d4);}
+[data-theme="ocean-dark"]{--primary:#38bdf8;--primary-hover:#0ea5e9;--bg-color:#0c1a2e;--card-bg:#0f2744;--text-main:#e0f2fe;--text-muted:#7dd3fc;--border-color:#1e3a5f;--header-grad:linear-gradient(135deg,#0369a1,#0891b2);}
+[data-theme="forest"]{--primary:#16a34a;--primary-hover:#15803d;--bg-color:#f0fdf4;--card-bg:#fff;--text-main:#14532d;--text-muted:#4b7a5e;--border-color:#bbf7d0;--success:#22c55e;--header-grad:linear-gradient(135deg,#16a34a,#059669);}
+[data-theme="forest-dark"]{--primary:#4ade80;--primary-hover:#22c55e;--bg-color:#052e16;--card-bg:#0d3321;--text-main:#dcfce7;--text-muted:#86efac;--border-color:#145728;--header-grad:linear-gradient(135deg,#166534,#065f46);}
+[data-theme="sunset"]{--primary:#f97316;--primary-hover:#ea580c;--bg-color:#fff7ed;--card-bg:#fff;--text-main:#431407;--text-muted:#92400e;--border-color:#fed7aa;--success:#10b981;--header-grad:linear-gradient(135deg,#f97316,#ec4899);}
+[data-theme="sunset-dark"]{--primary:#fb923c;--primary-hover:#f97316;--bg-color:#1c0a00;--card-bg:#2d1100;--text-main:#ffedd5;--text-muted:#fdba74;--border-color:#431407;--header-grad:linear-gradient(135deg,#c2410c,#9d174d);}
+[data-theme="royal"]{--primary:#7c3aed;--primary-hover:#6d28d9;--bg-color:#faf5ff;--card-bg:#fff;--text-main:#2e1065;--text-muted:#7e22ce;--border-color:#e9d5ff;--success:#10b981;--header-grad:linear-gradient(135deg,#7c3aed,#db2777);}
+[data-theme="royal-dark"]{--primary:#a78bfa;--primary-hover:#7c3aed;--bg-color:#0d0520;--card-bg:#1a0a35;--text-main:#ede9fe;--text-muted:#c4b5fd;--border-color:#2e1065;--header-grad:linear-gradient(135deg,#4c1d95,#831843);}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;-webkit-tap-highlight-color:transparent;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg-color);color:var(--text-main);min-height:100vh;overflow-x:hidden;transition:background .3s,color .3s;}
+
+.header{position:sticky;top:0;z-index:100;width:100%;padding:14px 16px;background:var(--header-grad);color:#fff;display:flex;align-items:center;justify-content:space-between;box-shadow:0 4px 12px rgba(0,0,0,.2);}
+.header-title{font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px;}
+.header-controls{display:flex;align-items:center;gap:6px;}
+.icon-btn{width:38px;height:38px;border:none;border-radius:50%;background:rgba(255,255,255,.18);color:#fff;font-size:16px;cursor:pointer;backdrop-filter:blur(6px);transition:.2s;display:flex;align-items:center;justify-content:center;}
+.icon-btn:hover{background:rgba(255,255,255,.3);}
+.lang-toggle{height:34px;padding:0 12px;border:none;border-radius:20px;background:rgba(255,255,255,.2);color:#fff;font-size:12px;font-weight:700;cursor:pointer;backdrop-filter:blur(6px);letter-spacing:.3px;transition:.2s;white-space:nowrap;}
+.lang-toggle:hover{background:rgba(255,255,255,.3);}
+
+.nav-tabs{position:sticky;top:66px;z-index:90;display:none;width:100%;background:var(--card-bg);border-bottom:1px solid var(--border-color);position:relative;overflow:hidden;}
+.nav-tabs-indicator{position:absolute;top:6px;bottom:6px;left:0;width:0;border-radius:12px;background:var(--header-grad);box-shadow:0 6px 14px rgba(79,70,229,.35);transition:left .35s cubic-bezier(.65,0,.35,1),width .35s cubic-bezier(.65,0,.35,1);z-index:0;}
+.tab-btn{flex:1;border:none;background:transparent;padding:13px 10px;color:var(--text-muted);font-weight:700;cursor:pointer;font-size:13px;border-bottom:3px solid transparent;transition:color .3s,transform .2s;position:relative;z-index:1;}
+.tab-btn:active{transform:scale(.96);}
+.tab-btn i{display:inline-block;transition:transform .4s cubic-bezier(.34,1.56,.64,1);}
+.tab-btn.active{color:#fff;border-bottom-color:transparent;}
+.tab-btn.active i{transform:scale(1.18) rotate(-6deg);}
+
+.view-container{display:none;width:100%;max-width:900px;margin:auto;padding:14px;}
+.view-container.active{display:block;animation:viewFadeIn .4s ease;}
+@keyframes viewFadeIn{0%{opacity:0;transform:translateY(8px);}100%{opacity:1;transform:translateY(0);}}
+
+.card{background:var(--card-bg);border:1px solid var(--border-color);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-bottom:18px;transition:background .3s,border-color .3s;}
+.section-title{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px;font-size:17px;font-weight:800;color:var(--primary);}
+.players-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:12px;}
+.player-col{display:flex;flex-direction:column;align-items:center;}
+
+/* Avatar */
+.player-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:6px;border:3px solid var(--border-color);background:var(--bg-color);transition:border-color .25s,transform .25s,box-shadow .25s;user-select:none;}
+.player-avatar.active-avatar{border-color:var(--primary);transform:scale(1.1);box-shadow:0 0 0 4px rgba(79,70,229,.15);}
+
+.player-name{width:100%;text-align:center;font-size:11px;font-weight:700;color:var(--text-muted);margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.dealer-badge{background:linear-gradient(135deg,#f59e0b,#d97706);color:#fff;padding:2px 6px;border-radius:6px;font-size:10px;margin-left:3px;box-shadow:0 2px 6px rgba(245,158,11,.4);font-weight:800;}
+.score-input{width:100%;max-width:68px;border:2px solid var(--border-color);background:var(--bg-color);color:var(--text-main);border-radius:14px;text-align:center;font-size:20px;font-weight:800;padding:12px 6px;outline:none;transition:border-color .2s,transform .2s,box-shadow .2s,opacity .3s;}
+.score-input:focus{border-color:var(--primary);transform:scale(1.03);}
+.score-input:disabled{opacity:.55;}
+.score-input.exp-active{border-color:#f59e0b;background:rgba(245,158,11,.1);box-shadow:0 0 0 3px rgba(245,158,11,.2);}
+.score-input.ach-active{border-color:#10b981;background:rgba(16,185,129,.1);box-shadow:0 0 0 3px rgba(16,185,129,.2);}
+
+.warning-msg{display:none;margin-bottom:14px;padding:12px;border-radius:12px;font-size:13px;font-weight:700;text-align:center;}
+.warn-yellow{background:rgba(245,158,11,.1);border:1px solid var(--warning);color:var(--warning);}
+.warn-red{background:rgba(239,68,68,.1);border:1px solid var(--danger);color:var(--danger);}
+
+.btn{border:none;border-radius:12px;padding:13px 18px;font-size:15px;font-weight:700;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:.2s;}
+.btn:active{transform:scale(.98);}
+.btn-primary{width:100%;background:var(--primary);color:#fff;}
+.btn-primary:hover{background:var(--primary-hover);}
+.btn-primary:disabled{opacity:.6;cursor:not-allowed;}
+.btn-success{background:var(--success);color:#fff;}
+.btn-danger{background:var(--danger);color:#fff;}
+.btn-outline{border:2px solid var(--primary);background:transparent;color:var(--primary);width:100%;}
+.btn-small{padding:7px 10px;border-radius:8px;font-size:13px;}
+.flex-between{display:flex;gap:10px;margin-top:18px;}
+
+/* ─── Animated Score Cells ─── */
+.score-cell{display:inline-block;}
+.score-cell.pop{animation:scoreSlide .4s cubic-bezier(.22,1,.36,1);}
+@keyframes scoreSlide{0%{transform:translateY(-18px) scale(.8);opacity:0;}100%{transform:translateY(0) scale(1);opacity:1;}}
+.total-cell{display:inline-block;}
+.total-cell.pop{animation:totalBounce .5s cubic-bezier(.34,1.56,.64,1);}
+@keyframes totalBounce{0%{transform:scale(.6);opacity:0;}60%{transform:scale(1.15);}100%{transform:scale(1);opacity:1;}}
+
+.table-responsive{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px;}
+.score-table-wrap{overflow:auto;max-height:420px;border-radius:12px;position:relative;}
+table{width:100%;border-collapse:collapse;text-align:center;min-width:0;}
+th{background:var(--bg-color);color:var(--text-main);padding:10px 6px;font-size:11px;font-weight:800;border-bottom:2px solid var(--border-color);position:sticky;top:0;z-index:3;white-space:nowrap;}
+th:first-child{position:sticky;left:0;top:0;z-index:5;background:var(--bg-color);}
+td{padding:10px 6px;border-bottom:1px solid var(--border-color);font-size:13px;font-weight:600;}
+td:first-child{position:sticky;left:0;z-index:2;background:var(--card-bg);font-weight:800;color:var(--text-muted);font-size:12px;min-width:44px;}
+tr:nth-child(even) td:first-child{background:var(--bg-color);}
+.total-row td:first-child{background:rgba(79,70,229,.1);}
+.total-row{background:rgba(79,70,229,.08);color:var(--primary);font-size:15px;font-weight:800;}
+.winner-cell{background:rgba(16,185,129,.15);color:var(--success);font-weight:800;}
+.rank-badge{display:inline-block;padding:4px 7px;border-radius:8px;font-size:11px;font-weight:800;}
+.rank-1{background:#fbbf24;color:#78350f;}
+.rank-2{background:#9ca3af;color:#111827;}
+.rank-3{background:#b45309;color:#fff;}
+
+.th-player-name{display:inline-block;animation:playerNameAnim 4s ease-in-out infinite;}
+@keyframes playerNameAnim{0%,100%{transform:translateY(0);}50%{transform:translateY(-2px);}}
+.th-color-0{background:linear-gradient(90deg,#4f46e5,#8b5cf6,#ec4899,#4f46e5);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:thGrad0 3s linear infinite,playerNameAnim 3s ease-in-out infinite;}
+.th-color-1{background:linear-gradient(90deg,#0ea5e9,#06b6d4,#3b82f6,#0ea5e9);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:thGrad1 3.2s linear infinite,playerNameAnim 3.2s ease-in-out infinite;animation-delay:.4s;}
+.th-color-2{background:linear-gradient(90deg,#10b981,#22c55e,#84cc16,#10b981);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:thGrad2 3.4s linear infinite,playerNameAnim 3.4s ease-in-out infinite;animation-delay:.8s;}
+.th-color-3{background:linear-gradient(90deg,#f97316,#ec4899,#f59e0b,#f97316);background-size:300% 100%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:thGrad3 3.6s linear infinite,playerNameAnim 3.6s ease-in-out infinite;animation-delay:1.2s;}
+@keyframes thGrad0{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
+@keyframes thGrad1{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
+@keyframes thGrad2{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
+@keyframes thGrad3{0%{background-position:0% 50%;}100%{background-position:300% 50%;}}
+
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;z-index:999;padding:16px;}
+.modal-content{width:100%;max-width:500px;max-height:90vh;overflow-y:auto;background:var(--card-bg);border-radius:24px;padding:24px;box-shadow:var(--shadow);}
+.modal-content h2{color:var(--primary);text-align:center;margin-bottom:18px;}
+
+.setup-player-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+.setup-avatar-btn{width:50px;height:50px;border-radius:50%;border:2px solid var(--border-color);background:var(--bg-color);font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:.15s;}
+.setup-avatar-btn:hover{border-color:var(--primary);transform:scale(1.1);}
+.name-input{flex:1;border:2px solid var(--border-color);background:var(--bg-color);color:var(--text-main);border-radius:14px;padding:12px 14px;font-size:15px;font-weight:600;outline:none;}
+.name-input:focus{border-color:var(--primary);}
+
+.emoji-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:1100;padding:16px;}
+.emoji-grid{background:var(--card-bg);border-radius:20px;padding:18px;display:grid;grid-template-columns:repeat(6,1fr);gap:8px;max-width:340px;width:100%;max-height:72vh;overflow-y:auto;box-shadow:var(--shadow);}
+.emoji-grid-title{grid-column:1/-1;font-size:13px;font-weight:700;color:var(--text-muted);text-align:center;margin-bottom:4px;}
+.emoji-opt{font-size:28px;text-align:center;padding:7px;border-radius:12px;cursor:pointer;transition:.15s;border:2px solid transparent;}
+.emoji-opt:hover{background:var(--bg-color);border-color:var(--primary);transform:scale(1.18);}
+.emoji-opt.sel{border-color:var(--primary);background:rgba(79,70,229,.12);}
+
+.theme-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;}
+.theme-card{border:3px solid transparent;border-radius:16px;padding:14px;cursor:pointer;text-align:center;transition:.2s;display:flex;flex-direction:column;align-items:center;gap:6px;background:var(--bg-color);}
+.theme-card:hover{transform:scale(1.03);}
+.theme-card.active-theme{border-color:var(--primary);box-shadow:0 0 0 3px rgba(79,70,229,.2);}
+.theme-swatch{width:54px;height:28px;border-radius:20px;display:inline-block;}
+.theme-name{font-size:13px;font-weight:700;color:var(--text-main);}
+
+.history-card{background:var(--bg-color);border:1px solid var(--border-color);border-radius:14px;padding:16px;margin-bottom:14px;}
+.stats-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;}
+.stat-box{background:var(--bg-color);border:1px solid var(--border-color);border-radius:16px;padding:18px;text-align:center;}
+.stat-box h3{color:var(--primary);margin-bottom:10px;}
+
+@media(max-width:650px){
+    .header-title{font-size:16px;}.view-container{padding:10px;}.card{padding:14px;border-radius:16px;}
+    .players-grid{gap:6px;}.score-input{max-width:60px;padding:11px 4px;font-size:17px;border-radius:12px;}
+    .player-name{font-size:10px;}.btn{font-size:14px;padding:12px 14px;}.section-title{font-size:15px;}
+    .stats-grid{grid-template-columns:1fr;}.modal-content{padding:18px;}.lang-toggle{font-size:11px;padding:0 9px;height:30px;}
+    .player-avatar{width:36px;height:36px;font-size:19px;}.theme-grid{grid-template-columns:repeat(2,1fr);}
+}
+hr{border:none;border-top:1px solid var(--border-color);margin:20px 0;}
+
+@keyframes shake{0%,100%{transform:translateX(0);}20%,60%{transform:translateX(-8px);}40%,80%{transform:translateX(8px);}}
+
+/* ─── PREMIUM CREDIT — TYPEWRITER ─── */
+.credit{
+    position:fixed;bottom:14px;left:50%;transform:translateX(-50%);
+    width:auto;min-width:200px;max-width:90vw;
+    height:44px;
+    background:linear-gradient(135deg,#000000,#0d0d0d,#000000);
+    backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+    border-radius:50px;
+    border:1px solid rgba(167,139,250,.35);
+    box-shadow:
+        0 0 0 1px rgba(167,139,250,.1),
+        0 4px 24px rgba(100,60,220,.35),
+        0 1px 0 rgba(255,255,255,.12) inset;
+    overflow:hidden;
+    z-index:10;
+    display:flex;align-items:center;justify-content:center;
+    padding:0 20px;gap:10px;
+    animation:creditColorShift 8s ease-in-out infinite, creditEntry 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes creditEntry {
+    0% { transform: translate(-50%, 100px); opacity: 0; }
+    100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+@keyframes creditColorShift{
+    0%   {background:linear-gradient(135deg,#000000,#0d0020,#000000); box-shadow:0 0 0 1px rgba(167,139,250,.1),0 4px 24px rgba(100,60,220,.35),0 1px 0 rgba(255,255,255,.12) inset;}
+    14%  {background:linear-gradient(135deg,#000510,#001533,#000510); box-shadow:0 0 0 1px rgba(56,189,248,.15),0 4px 28px rgba(14,165,233,.4),0 1px 0 rgba(255,255,255,.12) inset;}
+    28%  {background:linear-gradient(135deg,#000d00,#002200,#000d00); box-shadow:0 0 0 1px rgba(74,222,128,.15),0 4px 28px rgba(22,163,74,.4),0 1px 0 rgba(255,255,255,.12) inset;}
+    42%  {background:linear-gradient(135deg,#120000,#330010,#120000); box-shadow:0 0 0 1px rgba(251,113,133,.15),0 4px 28px rgba(239,68,68,.4),0 1px 0 rgba(255,255,255,.12) inset;}
+    56%  {background:linear-gradient(135deg,#110800,#2d1500,#110800); box-shadow:0 0 0 1px rgba(251,191,36,.15),0 4px 28px rgba(245,158,11,.4),0 1px 0 rgba(255,255,255,.12) inset;}
+    70%  {background:linear-gradient(135deg,#0a0015,#1e0040,#0a0015); box-shadow:0 0 0 1px rgba(192,132,252,.2),0 4px 28px rgba(124,58,237,.5),0 1px 0 rgba(255,255,255,.12) inset;}
+    85%  {background:linear-gradient(135deg,#001010,#002828,#001010); box-shadow:0 0 0 1px rgba(94,234,212,.15),0 4px 28px rgba(20,184,166,.4),0 1px 0 rgba(255,255,255,.12) inset;}
+    100% {background:linear-gradient(135deg,#000000,#0d0020,#000000); box-shadow:0 0 0 1px rgba(167,139,250,.1),0 4px 24px rgba(100,60,220,.35),0 1px 0 rgba(255,255,255,.12) inset;}
+}
+.credit::after{
+    content:'';position:absolute;top:0;left:-80%;width:60%;height:100%;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),rgba(167,139,250,.12),rgba(255,255,255,.08),transparent);
+    animation:creditSweep 5s ease-in-out infinite;z-index:0;border-radius:50px;pointer-events:none;
+}
+@keyframes creditSweep{0%,100%{left:-80%;opacity:0;}20%{opacity:1;}80%{opacity:.6;}60%{left:130%;}}
+
+.credit-icon{
+    font-size:13px;
+    animation:iconPulse 2.5s ease-in-out infinite;
+    z-index:1;flex-shrink:0;
+}
+@keyframes iconPulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 4px rgba(167,139,250,.6));}50%{transform:scale(1.2);filter:drop-shadow(0 0 8px rgba(167,139,250,1));}}
+
+.credit-made{
+    font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:rgba(167,139,250,.6);z-index:1;flex-shrink:0;
+}
+
+.credit-name-wrap{
+    position:relative;display:flex;align-items:center;z-index:1;
+    min-width:110px;
+}
+.credit-tw{
+    font-size:13px;font-weight:900;letter-spacing:2.5px;text-transform:uppercase;
+    background:linear-gradient(90deg,#c084fc,#818cf8,#38bdf8,#34d399,#fbbf24,#f472b6,#c084fc);
+    background-size:400% 100%;
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    animation:twGrad 4s linear infinite;
+    white-space:nowrap;
+}
+@keyframes twGrad{0%{background-position:0% 50%;}100%{background-position:400% 50%;}}
+
+.credit-cursor{
+    display:inline-block;width:2px;height:14px;
+    background:linear-gradient(180deg,#c084fc,#38bdf8);
+    border-radius:2px;margin-left:2px;flex-shrink:0;
+    animation:cursorBlink .8s step-end infinite;
+    box-shadow:0 0 6px rgba(192,132,252,.8);
+}
+@keyframes cursorBlink{0%,100%{opacity:1;}50%{opacity:0;}}
+
+/* ─── OC TOGGLE BUTTON ─── */
+.oc-toggle-btn{
+    height:34px;padding:0 11px;border:none;border-radius:20px;
+    background:rgba(255,255,255,.18);color:#fff;
+    font-size:11px;font-weight:800;cursor:pointer;
+    backdrop-filter:blur(6px);letter-spacing:.3px;transition:.25s;
+    white-space:nowrap;display:flex;align-items:center;gap:5px;
+}
+.oc-toggle-btn:hover{background:rgba(255,255,255,.3);}
+.oc-toggle-btn.oc-on{
+    background:linear-gradient(135deg,rgba(239,68,68,.75),rgba(220,38,38,.65));
+    box-shadow:0 0 0 2px rgba(239,68,68,.4),0 0 12px rgba(239,68,68,.3);
+}
+.oc-toggle-btn.oc-off{
+    background:rgba(255,255,255,.15);
+    box-shadow:none;
+}
+.oc-dot{
+    width:7px;height:7px;border-radius:50%;
+    background:#fff;transition:.25s;
+    box-shadow:0 0 5px rgba(255,255,255,.8);
+}
+.oc-toggle-btn.oc-on .oc-dot{background:#fca5a5;box-shadow:0 0 8px rgba(239,68,68,.9);}
+
+/* ─── DEALER HIGHLIGHT ─── */
+.player-col.is-dealer .player-avatar{
+    border-color:#f59e0b!important;
+    box-shadow:0 0 0 3px rgba(245,158,11,.35),0 0 18px rgba(245,158,11,.5)!important;
+    animation:dealerPulse 2s ease-in-out infinite;
+}
+@keyframes dealerPulse{0%,100%{box-shadow:0 0 0 3px rgba(245,158,11,.35),0 0 18px rgba(245,158,11,.5);}50%{box-shadow:0 0 0 5px rgba(245,158,11,.5),0 0 28px rgba(245,158,11,.7);}}
+.dealer-crown{display:inline-block;animation:rotateCrown 3s linear infinite;transform-origin:center;}
+@keyframes rotateCrown{0%{transform:rotate(-8deg) scale(1);}25%{transform:rotate(8deg) scale(1.12);}50%{transform:rotate(-5deg) scale(1);}75%{transform:rotate(5deg) scale(1.08);}100%{transform:rotate(-8deg) scale(1);}}
+
+/* ─── LOCK ANIMATION ─── */
+.expected-section{transition:opacity .4s ease,transform .4s ease;}
+.expected-section.locked-out{opacity:.5;transform:scale(.98);}
+.achieved-section{transition:opacity .4s ease,transform .4s ease,box-shadow .4s ease;}
+.achieved-section.unlocked-glow{box-shadow:0 0 0 2px rgba(16,185,129,.3),0 0 20px rgba(16,185,129,.15);border-radius:14px;}
+.score-input.locking{animation:inputLock .35s cubic-bezier(.68,-.55,.27,1.55);}
+@keyframes inputLock{0%{transform:scale(1);}40%{transform:scale(.9);}70%{transform:scale(1.05);}100%{transform:scale(1);}}
+.score-input.unlocking{animation:inputUnlock .35s cubic-bezier(.68,-.55,.27,1.55);}
+@keyframes inputUnlock{0%{transform:scale(1);}40%{transform:scale(1.08);}100%{transform:scale(1);}}
+#fixBtn{transition:background .3s,transform .2s,box-shadow .3s;}
+#fixBtn:active{transform:scale(.94)!important;}
+#fixBtn.locking-btn{animation:btnPop .4s cubic-bezier(.34,1.56,.64,1);}
+@keyframes btnPop{0%{transform:scale(1);}50%{transform:scale(1.15);}100%{transform:scale(1);}}
+
+/* ─── FIREBASE / SYNC UI ─── */
+.toast{position:fixed;bottom:70px;left:50%;transform:translateX(-50%) translateY(20px);padding:11px 20px;border-radius:30px;font-size:13px;font-weight:700;color:#fff;z-index:9999;opacity:0;transition:opacity .3s,transform .3s;pointer-events:none;white-space:nowrap;max-width:90vw;text-align:center;}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.toast.success{background:rgba(16,185,129,.92);box-shadow:0 4px 20px rgba(16,185,129,.4);}
+.toast.error{background:rgba(239,68,68,.92);box-shadow:0 4px 20px rgba(239,68,68,.4);}
+.toast.info{background:rgba(79,70,229,.92);box-shadow:0 4px 20px rgba(79,70,229,.4);}
+.toast.warning{background:rgba(245,158,11,.92);box-shadow:0 4px 20px rgba(245,158,11,.4);}
+
+.sync-dot{width:8px;height:8px;border-radius:50%;background:#10b981;display:inline-block;margin-left:4px;transition:background .3s;}
+.sync-dot.offline{background:#ef4444;animation:syncBlink 1.5s ease-in-out infinite;}
+.sync-dot.syncing{background:#f59e0b;animation:syncSpin 1s linear infinite;}
+@keyframes syncBlink{0%,100%{opacity:1;}50%{opacity:.3;}}
+@keyframes syncSpin{0%{transform:scale(1);}50%{transform:scale(1.5);}100%{transform:scale(1);}}
+
+.auth-section{background:var(--bg-color);border:1px solid var(--border-color);border-radius:16px;padding:16px;margin-bottom:16px;}
+.auth-section p{font-size:13px;color:var(--text-muted);margin-bottom:12px;text-align:center;}
+.btn-google{background:#fff;color:#374151;border:2px solid #e5e7eb;display:flex;align-items:center;justify-content:center;gap:10px;width:100%;border-radius:12px;padding:12px 18px;font-size:14px;font-weight:700;cursor:pointer;transition:.2s;box-shadow:0 2px 8px rgba(0,0,0,.08);}
+.btn-google:hover{border-color:#4f46e5;box-shadow:0 4px 14px rgba(0,0,0,.12);}
+.btn-guest{background:transparent;border:2px solid var(--border-color);color:var(--text-muted);width:100%;border-radius:12px;padding:10px 18px;font-size:13px;font-weight:600;cursor:pointer;margin-top:8px;transition:.2s;}
+.btn-guest:hover{border-color:var(--primary);color:var(--primary);}
+.user-info{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,.85);}
+.user-avatar-small{width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.4);object-fit:cover;}
+.user-avatar-emoji{width:26px;height:26px;border-radius:50%;border:2px solid rgba(255,255,255,.4);background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:14px;}
+
+.skeleton{background:linear-gradient(90deg,var(--border-color) 25%,var(--bg-color) 50%,var(--border-color) 75%);background-size:200% 100%;animation:shimmer 1.5s infinite;border-radius:10px;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.skeleton-card{height:80px;margin-bottom:12px;}
+.skeleton-text{height:14px;width:60%;margin:8px auto;}
+
+/* ═══════════════════════════════════════
+   SUPABASE DASHBOARD STYLES
+   ═══════════════════════════════════════ */
+
+/* ── Dashboard stat mini-cards in header area ── */
+.sb-dashboard{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+    margin-bottom:18px;
+}
+@media(max-width:600px){.sb-dashboard{grid-template-columns:repeat(2,1fr);}}
+
+.sb-stat-card{
+    background:var(--card-bg);border:1px solid var(--border-color);
+    border-radius:16px;padding:14px 12px;text-align:center;
+    box-shadow:var(--shadow);position:relative;overflow:hidden;
+    transition:transform .2s,box-shadow .2s;
+}
+.sb-stat-card:hover{transform:translateY(-2px);box-shadow:0 14px 28px rgba(0,0,0,.12);}
+.sb-stat-card::before{
+    content:'';position:absolute;top:0;left:0;right:0;height:3px;
+    background:var(--sb-accent,var(--primary));
+    border-radius:16px 16px 0 0;
+}
+.sb-stat-card .sb-num{
+    font-size:28px;font-weight:900;color:var(--primary);
+    line-height:1;margin:6px 0 4px;
+    transition:transform .3s;
+}
+.sb-stat-card.updated .sb-num{animation:numPop .4s cubic-bezier(.34,1.56,.64,1);}
+@keyframes numPop{0%{transform:scale(.8);}60%{transform:scale(1.15);}100%{transform:scale(1);}}
+.sb-stat-card .sb-label{font-size:10px;font-weight:700;color:var(--text-muted);letter-spacing:.5px;text-transform:uppercase;}
+.sb-stat-card .sb-icon{font-size:18px;margin-bottom:4px;}
+
+/* ── Supabase connection status badge ── */
+.sb-badge{
+    display:inline-flex;align-items:center;gap:5px;
+    padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700;
+    background:rgba(16,185,129,.1);color:var(--success);
+    border:1px solid rgba(16,185,129,.3);
+}
+.sb-badge.error{background:rgba(239,68,68,.1);color:var(--danger);border-color:rgba(239,68,68,.3);}
+.sb-badge.loading{background:rgba(245,158,11,.1);color:var(--warning);border-color:rgba(245,158,11,.3);}
+.sb-badge-dot{width:6px;height:6px;border-radius:50%;background:currentColor;}
+.sb-badge.loading .sb-badge-dot{animation:syncBlink 1s infinite;}
+
+/* ── Player profile cards (Supabase tab) ── */
+.sb-player-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;}
+@media(max-width:500px){.sb-player-grid{grid-template-columns:1fr;}}
+
+.sb-player-card{
+    background:var(--card-bg);border:1px solid var(--border-color);
+    border-radius:18px;padding:16px;box-shadow:var(--shadow);
+    position:relative;overflow:hidden;
+}
+.sb-player-card .sb-player-header{
+    display:flex;align-items:center;gap:10px;margin-bottom:12px;
+}
+.sb-player-avatar{
+    width:46px;height:46px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;font-size:24px;
+    background:var(--bg-color);border:3px solid var(--primary);
+    box-shadow:0 0 0 4px rgba(79,70,229,.12);
+}
+.sb-player-name{font-size:15px;font-weight:800;color:var(--text-main);}
+.sb-player-rank{font-size:10px;font-weight:700;color:var(--text-muted);letter-spacing:.5px;}
+
+.sb-stat-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:7px 0;border-bottom:1px solid var(--border-color);font-size:12px;
+}
+.sb-stat-row:last-child{border:none;padding-bottom:0;}
+.sb-stat-label{color:var(--text-muted);font-weight:600;}
+.sb-stat-val{font-weight:800;color:var(--text-main);}
+.sb-stat-val.pos{color:var(--success);}
+.sb-stat-val.neg{color:var(--danger);}
+.sb-stat-val.gold{color:#f59e0b;}
+
+/* ── Efficiency bar ── */
+.sb-eff-bar{height:5px;border-radius:3px;background:var(--border-color);margin-top:6px;overflow:hidden;}
+.sb-eff-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--primary),var(--success));transition:width .6s ease;}
+
+/* ── History from Supabase ── */
+.sb-history-item{
+    background:var(--bg-color);border:1px solid var(--border-color);
+    border-radius:14px;padding:14px;margin-bottom:10px;
+    position:relative;overflow:hidden;
+}
+.sb-history-item::before{
+    content:'';position:absolute;left:0;top:0;bottom:0;width:3px;
+    background:var(--primary);border-radius:2px 0 0 2px;
+}
+.sb-history-meta{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-bottom:8px;font-size:11px;color:var(--text-muted);
+}
+.sb-history-badge{
+    padding:2px 8px;border-radius:10px;background:rgba(79,70,229,.1);
+    color:var(--primary);font-weight:700;font-size:10px;
+}
+.sb-player-scores{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:6px;
+}
+.sb-ps-cell{
+    text-align:center;padding:6px 4px;border-radius:10px;
+    background:var(--card-bg);border:1px solid var(--border-color);
+    font-size:11px;
+}
+.sb-ps-cell.winner{
+    border-color:var(--success);
+    background:rgba(16,185,129,.08);
+}
+.sb-ps-emoji{font-size:16px;display:block;}
+.sb-ps-name{font-weight:700;color:var(--text-main);font-size:10px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sb-ps-score{font-weight:900;font-size:13px;}
+.sb-ps-score.w{color:var(--success);}
+.sb-ps-score.l{color:var(--danger);}
+
+/* ── Empty state ── */
+.sb-empty{
+    text-align:center;padding:36px 16px;color:var(--text-muted);
+}
+.sb-empty-icon{font-size:40px;margin-bottom:10px;opacity:.5;}
+.sb-empty-text{font-size:14px;font-weight:600;}
+
+/* ── Error state ── */
+.sb-error{
+    background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.2);
+    border-radius:12px;padding:14px;text-align:center;
+    color:var(--danger);font-size:13px;font-weight:700;margin-bottom:12px;
+}
+
+/* ── Last calculation time ── */
+.sb-last-calc{
+    font-size:10px;color:var(--text-muted);font-weight:600;margin-top:4px;
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+}
+
+/* ── SQL Setup modal ── */
+.sql-box{
+    background:#0d1117;border:1px solid #30363d;border-radius:12px;
+    padding:14px;font-family:'Courier New',monospace;font-size:11px;
+    color:#e6edf3;overflow-x:auto;white-space:pre;margin-bottom:12px;
+    max-height:220px;overflow-y:auto;line-height:1.5;
+}
+.sql-keyword{color:#ff7b72;}
+.sql-string{color:#a5d6ff;}
+.sql-comment{color:#8b949e;}
+
+/* ─── FIBER OPTIC WIPE TRANSITION ─── */
+.wipe-overlay {
+    position: fixed; inset: 0; z-index: 999999;
+    display: flex; gap: 0; justify-content: space-evenly;
+    pointer-events: none; overflow: hidden;
+    background: transparent; /* Changed to fully transparent, no color */
+    animation: wipeBg 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.wipe-strip {
+    flex: 1;
+    max-width: 6px;
+    min-width: 3px;
+    height: 120vh;
+    top: -10vh;
+    position: relative;
+    transform: translateY(-100%) skewX(-3deg);
+    will-change: transform, opacity;
+}
+
+.wipe-strip::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0; height: 40px;
+    background: inherit;
+    filter: blur(2px);
+    border-radius: 4px;
+}
+
+.wipe-logo {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) scale(0.9);
+    font-size: 36px; font-weight: 800; color: #fff;
+    z-index: 10; opacity: 0;
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6), 0 4px 12px rgba(0,0,0,0.8);
+    display: flex; flex-direction: column; align-items: center; gap: 8px;
+    animation: logoInOut 1.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes wipeBg {
+    /* Removed the dark background to keep it completely transparent, added subtle blur only to make logo pop */
+    0%, 100% { background: transparent; backdrop-filter: blur(0px); }
+    25%, 75% { background: transparent; backdrop-filter: blur(4px); } 
+}
+
+@keyframes stripInOut {
+    0% { transform: translateY(-100%) skewX(-3deg); opacity: 0; }
+    15% { opacity: var(--strip-op); }
+    40% { transform: translateY(0%) skewX(-3deg); }
+    60% { transform: translateY(0%) skewX(-3deg); }
+    100% { transform: translateY(100%) skewX(-3deg); opacity: 0; }
+}
+
+@keyframes logoInOut {
+    0%, 100% { opacity: 0; transform: translate(-50%, -50%) scale(0.9); }
+    30%, 70% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="logo">
-        <img src="assets/logo.png" alt="Logo">
-        <div>
-          <div class="school-name">Ghoshkanda Pre-Cadet and High School</div>
-          <div style="font-size:12px;color:var(--muted)">Purbo Ghoshkanda, Konda, South Keraniganj, Dhaka</div>
-        </div>
-      </div>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="teachers.html">Teachers</a>
-        <a href="admission.html">Admission</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-    </header>
 
-    <main>
-      <section class="hero">
-        <div>
-          <div class="hero-card">
-            <h1>শিক্ষার আলো, ভবিষ্যতের ঠিকানা</h1>
-            <p class="lead">Ghoshkanda Pre-Cadet and High School-এ আমরা শিশুদের আধুনিক ও নৈতিক শিক্ষায় ক্ষমতায়ন করি। শৃঙ্খলা, শ্রেষ্ঠ শিক্ষকবৃন্দ ও উন্নত পরিবেশ আমাদের পরিচয়।</p>
-            <a class="btn" href="admission.html">Admission Open</a>
-            <div class="features">
-              <div class="feature">Experienced Teachers</div>
-              <div class="feature">Modern Classrooms</div>
-              <div class="feature">Safe Campus</div>
-            </div>
-            <div class="stats">
-              <div class="stat"><strong>2012</strong><div style="font-size:12px;color:var(--muted)">Established</div></div>
-              <div class="stat"><strong>500+</strong><div style="font-size:12px;color:var(--muted)">Students</div></div>
-              <div class="stat"><strong>6</strong><div style="font-size:12px;color:var(--muted)">Teachers</div></div>
-            </div>
-          </div>
-        </div>
+<div class="toast" id="toast"></div>
 
-        <aside>
-          <div class="hero-card">
-            <img src="assets/logo.png" alt="Logo" style="width:100%;border-radius:10px;margin-bottom:12px">
-            <div style="font-weight:700;color:#04506e;margin-bottom:6px">Contact</div>
-            <div style="font-size:14px;color:var(--muted)">Phone: 01967872552</div>
-            <div style="font-size:14px;color:var(--muted)">Email: fkfaysal22@gmail.com</div>
-            <div style="margin-top:12px">
-              <a class="btn" href="contact.html">Get In Touch</a>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <section style="margin-top:18px">
-        <div class="section-title">Our Teachers</div>
-        <div class="teachers">
-          <!-- Teacher cards (demo) -->
-          <div class="teacher">
-            <img src="assets/teacher1.png" alt="t1">
-            <div style="font-weight:700">Faysal Ahmed</div>
-            <div style="font-size:13px;color:var(--muted)">Principal</div>
-          </div>
-          <div class="teacher">
-            <img src="assets/teacher2.png" alt="t2">
-            <div style="font-weight:700">Akib Hossain</div>
-            <div style="font-size:13px;color:var(--muted)">Assistant Teacher</div>
-          </div>
-          <div class="teacher">
-            <img src="assets/teacher3.png" alt="t3">
-            <div style="font-weight:700">Anis Ahmed</div>
-            <div style="font-size:13px;color:var(--muted)">Assistant Teacher</div>
-          </div>
-          <div class="teacher">
-            <img src="assets/teacher4.png" alt="t4">
-            <div style="font-weight:700">Sajib Dash</div>
-            <div style="font-size:13px;color:var(--muted)">Assistant Teacher</div>
-          </div>
-          <div class="teacher">
-            <img src="assets/teacher5.png" alt="t5">
-            <div style="font-weight:700">Sharmin Akter Queen</div>
-            <div style="font-size:13px;color:var(--muted)">Assistant Teacher</div>
-          </div>
-          <div class="teacher">
-            <img src="assets/teacher6.png" alt="t6">
-            <div style="font-weight:700">Shahajul Islam</div>
-            <div style="font-size:13px;color:var(--muted)">Assistant Teacher</div>
-          </div>
-        </div>
-      </section>
-
-      <section style="margin-top:24px" class="hero-card">
-        <div class="section-title">Notice Board & Events</div>
-        <ul style="color:var(--muted);list-style:disc;margin-left:18px">
-          <li> 
-          <li>Annual Result Day — 31 December</li>
-          <li>Book distribution ceremony — 1st January</li>
-          <li>Admission ongoing for 2026 session</li>
-        </ul>
-      </section>
-
-    </main>
-
-    <footer>
-      <div class="container">
-        <div class="grid-3">
-          <div>
-            <div style="font-weight:700">About</div>
-            <div style="color:var(--muted);margin-top:8px">
-              Ghoshkanda Pre-Cadet and High School ২০১২ সালে প্রতিষ্ঠিত হয়ে শিক্ষার আলো ছড়িয়ে যাচ্ছে।
-            </div>
-          </div>
-          <div>
-            <div style="font-weight:700">Contact</div>
-<div style="color:var(--muted);margin-top:8px">
-  Phone: 01967872552<br>
-  Email: fkfaysal22@gmail.com<br>
-  Facebook: <a href="https://www.facebook.com/precadeta/" target="_blank" style="color:#1877F2; text-decoration:underline;">GPC SCHOOL/</a>
+<div class="header">
+    <div class="header-title">
+        <i class="fa-solid fa-layer-group"></i>
+        Call Bridge
+        <span class="sync-dot" id="syncDot" title="Sync status"></span>
+    </div>
+    <div class="header-controls">
+        <div class="user-info" id="userInfo" style="display:none;"></div>
+        <button class="lang-toggle" id="langBtn" onclick="toggleLanguage()">বাংলা</button>
+        <button class="oc-toggle-btn oc-off" id="ocToggleBtn" onclick="toggleOCRule()" title="Over-Card Rule: কেউ ২ বেশি পেলে call minus হবে">
+            <span class="oc-dot" id="ocDot"></span>
+            <span id="ocBtnLabel">OC: OFF</span>
+        </button>
+        <button class="icon-btn" onclick="openThemeModal()" title="Themes"><i class="fa-solid fa-palette"></i></button>
+        <button class="icon-btn" onclick="toggleTheme()" title="Toggle Dark/Light"><i class="fa-solid fa-moon" id="themeIcon"></i></button>
+    </div>
 </div>
 
-          </div>
-          <div>
-            <div style="font-weight:700">Address</div>
-            <div style="color:var(--muted);margin-top:8px">Purbo Ghoshkanda, Konda, South Keraniganj, Dhaka</div>
-          </div>
+<div class="nav-tabs" id="navTabs">
+    <div class="nav-tabs-indicator" id="navTabsIndicator"></div>
+    <button class="tab-btn active" onclick="switchTab(event,'mainApp')"><i class="fa-solid fa-gamepad"></i> <span data-key="game">Game</span></button>
+    <button class="tab-btn" onclick="switchTab(event,'profilesView');sbLoadProfiles();"><i class="fa-solid fa-users"></i> Profiles</button>
+</div>
+
+<div class="modal-overlay" id="setupModal">
+    <div class="modal-content">
+        <h2 data-key="enterNames">Enter Player Names</h2>
+        <div class="auth-section" id="authSection">
+            <p id="authStatusText">Sign in to sync matches across devices</p>
+            <button class="btn-google" id="googleSignInBtn" onclick="signInWithGoogle()">
+                <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.35-8.16 2.35-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+                Continue with Google
+            </button>
+            <button class="btn-guest" id="guestSignInBtn" onclick="signInAsGuest()">
+                <i class="fa-solid fa-user-secret"></i> Continue as Guest
+            </button>
+            <div id="signedInInfo" style="display:none;text-align:center;">
+                <p style="color:var(--success);font-weight:700;font-size:13px;"><i class="fa-solid fa-check-circle"></i> <span id="signedInName"></span></p>
+                <button class="btn-guest" onclick="signOutUser()" style="margin-top:6px;font-size:12px;">Sign Out</button>
+            </div>
         </div>
-      </div>
-    </footer>
+        <div id="setupRows"></div>
+        <datalist id="knownPlayersList"></datalist>
+        <div class="flex-between" style="margin-top:14px;">
+            <button class="btn btn-outline" onclick="resumeSavedGame()" id="resumeBtn" style="display:none;width:48%;" data-key="resume">Resume</button>
+            <button class="btn btn-primary" onclick="startGame()" id="startBtn" style="flex:1;" data-key="startGame">Start Game</button>
+        </div>
+    </div>
+</div>
+
+<div class="emoji-overlay" id="emojiOverlay" style="display:none;" onclick="closeEmojiPicker(event)">
+    <div class="emoji-grid" id="emojiGrid" onclick="event.stopPropagation()"></div>
+</div>
+
+<div class="modal-overlay" id="editModal" style="display:none;">
+    <div class="modal-content">
+        <h2><span data-key="editRound">Edit Round</span> <span id="editRoundNum"></span></h2>
+        <div class="section-title" style="font-size:14px;" data-key="expectedCall">Expected Call</div>
+        <div class="players-grid" id="editExpectedInputs"></div>
+        <div class="section-title" style="font-size:14px;margin-top:18px;" data-key="achievedPoints">Achieved Points</div>
+        <div class="players-grid" id="editAchievedInputs"></div>
+        <div class="flex-between">
+            <button class="btn btn-outline" onclick="closeEditModal()" data-key="cancel">Cancel</button>
+            <button class="btn btn-primary" onclick="saveEditedRound()" data-key="save">Save</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="customEntryModal" style="display:none;">
+    <div class="modal-content">
+        <h2 style="color:#f97316;font-size:18px;"><i class="fa-solid fa-sliders"></i> Custom Score Entry</h2>
+        <p style="text-align:center;color:var(--text-muted);font-size:12px;margin-bottom:16px;">প্রতিটা player কে সরাসরি + বা − দাও। কোনো rule নেই।</p>
+        <div id="customEntryRows" style="display:flex;flex-direction:column;gap:10px;"></div>
+        <div class="flex-between" style="margin-top:16px;">
+            <button class="btn btn-outline" onclick="closeCustomEntryModal()" data-key="cancel">Cancel</button>
+            <button class="btn" onclick="submitCustomEntry()" style="background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;flex:1;margin-left:8px;border-radius:12px;font-weight:700;font-size:15px;padding:13px;">
+                <i class="fa-solid fa-check-circle"></i> Submit
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="manualMinusModal" style="display:none;">
+    <div class="modal-content">
+        <h2 style="color:var(--danger);"><i class="fa-solid fa-circle-minus"></i> <span data-key="manualMinusTitle">Manual Minus</span></h2>
+        <p style="text-align:center;color:var(--text-muted);font-size:13px;margin-bottom:16px;" data-key="manualMinusDesc">Select a player and enter how much to minus from their total score.</p>
+        <div id="manualMinusRows" style="display:grid;gap:10px;"></div>
+        <div style="margin-top:16px;padding:12px;background:rgba(239,68,68,.08);border:1px solid var(--danger);border-radius:12px;">
+            <p style="font-size:12px;color:var(--danger);font-weight:700;text-align:center;" data-key="manualMinusNote">⚠️ This will be recorded as a special bonus-minus round in the scoreboard.</p>
+        </div>
+        <div class="flex-between">
+            <button class="btn btn-outline" onclick="closeManualMinusModal()" data-key="cancel">Cancel</button>
+            <button class="btn btn-danger" onclick="applyManualMinus()" data-key="applyMinus">Apply Minus</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="manualPlusModal" style="display:none;">
+    <div class="modal-content">
+        <h2 style="color:var(--success);"><i class="fa-solid fa-circle-plus"></i> Manual Plus</h2>
+        <p style="text-align:center;color:var(--text-muted);font-size:13px;margin-bottom:16px;">একজন খেলোয়াড় বেছে নিন এবং কতটুকু প্লাস করবেন লিখুন।</p>
+        <div id="manualPlusRows" style="display:grid;gap:10px;"></div>
+        <div style="margin-top:16px;padding:12px;background:rgba(16,185,129,.08);border:1px solid var(--success);border-radius:12px;">
+            <p style="font-size:12px;color:var(--success);font-weight:700;text-align:center;">✅ এটি স্কোরবোর্ডে একটি বিশেষ প্লাস রাউন্ড হিসেবে রেকর্ড হবে।</p>
+        </div>
+        <div class="flex-between">
+            <button class="btn btn-outline" onclick="closeManualPlusModal()">Cancel</button>
+            <button class="btn btn-success" onclick="applyManualPlus()"><i class="fa-solid fa-plus"></i> Apply Plus</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="themeModal" style="display:none;" onclick="closeThemeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <h2><i class="fa-solid fa-palette"></i> &nbsp;Choose Theme</h2>
+        <div class="theme-grid" id="themeGrid"></div>
+        <div class="flex-between" style="margin-top:12px;">
+            <button class="btn btn-outline" onclick="document.getElementById('themeModal').style.display='none'" style="width:100%;">Close</button>
+        </div>
+    </div>
+</div>
+
+<div class="view-container active" id="mainApp">
+
+    <div class="card">
+        <div class="section-title">
+            <span><i class="fa-solid fa-bullseye"></i> <span data-key="expectedCall">Expected Call</span></span>
+            <button class="btn btn-success" id="fixBtn" style="padding:8px 14px;font-size:13px;" onclick="fixExpected()" data-key="lock">Lock</button>
+        </div>
+        <div class="warning-msg warn-yellow" id="expWarning"></div>
+        <div id="expectedTotal" style="text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:10px;"><span data-key="total">Total</span>: 0 / 13</div>
+        <div class="players-grid expected-section" id="expectedInputs"></div>
+        <hr>
+        <div class="section-title"><span><i class="fa-solid fa-hand-sparkles"></i> <span data-key="achievedPoints">Achieved Points</span></span></div>
+        <div class="warning-msg warn-red" id="achWarning"></div>
+        <div id="achievedTotal" style="text-align:center;font-size:13px;color:var(--text-muted);margin-bottom:10px;"><span data-key="total">Total</span>: 0 / 13</div>
+        <div class="players-grid achieved-section" id="achievedInputs"></div>
+        <div style="display:flex;gap:8px;margin-top:0;">
+            <button class="btn btn-primary" id="submitRoundBtn" disabled onclick="submitRound()" style="flex:1;">
+                <i class="fa-solid fa-check-circle"></i> <span data-key="submitRound">Submit Round</span>
+            </button>
+            <button class="btn" id="customEntryBtn" onclick="openCustomEntryModal()" style="background:linear-gradient(135deg,#f59e0b,#f97316);color:#fff;padding:13px 14px;border-radius:12px;min-width:52px;flex-shrink:0;" title="Custom Entry — bypass 13 rule">
+                <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="section-title">
+            <span><i class="fa-solid fa-trophy"></i> <span data-key="scoreboard">Scoreboard</span></span>
+            <div style="display:flex;gap:6px;">
+                <button class="btn btn-outline btn-small" onclick="openManualPlusModal()" title="Manually plus a player" style="border-color:var(--success);color:var(--success);">
+                    <i class="fa-solid fa-plus"></i> Plus
+                </button>
+                <button class="btn btn-outline btn-small" onclick="openManualMinusModal()" title="Manually minus a player" style="border-color:var(--danger);color:var(--danger);">
+                    <i class="fa-solid fa-minus"></i> <span data-key="manualMinus">Minus</span>
+                </button>
+                <button class="btn btn-danger btn-small" onclick="undoLastRound()">
+                    <i class="fa-solid fa-rotate-left"></i> <span data-key="undo">Undo</span>
+                </button>
+            </div>
+        </div>
+        <div class="score-table-wrap">
+            <table>
+                <thead><tr>
+                    <th data-key="round">Round</th>
+                    <th id="th0">P1</th><th id="th1">P2</th><th id="th2">P3</th><th id="th3">P4</th>
+                    <th data-key="edit">Edit</th>
+                </tr></thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+        <div class="flex-between">
+            <button class="btn btn-outline" onclick="resetFullGame()" data-key="restart">Restart</button>
+            <button class="btn btn-success" onclick="finishAndSaveGame()" data-key="finish">Finish</button>
+        </div>
+    </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     SUPABASE PROFILES & ANALYTICS VIEW
+     ══════════════════════════════════════════════ -->
+<div class="view-container" id="profilesView">
+
+    <!-- Connection status -->
+    <div class="card" style="padding:14px 18px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+            <div>
+                <div style="font-size:15px;font-weight:800;color:var(--primary);display:flex;align-items:center;gap:8px;">
+                    <i class="fa-solid fa-chart-line" style="color:var(--primary);"></i>
+                    Player Analytics
+                </div>
+                <div style="font-size:12px;color:var(--text-muted);margin-top:2px;">Lifetime stats — call accuracy, OC history, risk style</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+                <span id="sbStatusBadge" class="sb-badge loading"><span class="sb-badge-dot"></span> Connecting…</span>
+                <button class="btn btn-outline btn-small" onclick="sbLoadProfiles()" style="font-size:11px;padding:6px 10px;">
+                    <i class="fa-solid fa-rotate"></i> Refresh
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden placeholders for JS compatibility -->
+    <span id="sbP_total" style="display:none;"></span>
+    <span id="sbP_today" style="display:none;"></span>
+    <span id="sbP_week" style="display:none;"></span>
+    <span id="sbP_month" style="display:none;"></span>
+    <span id="sbLastMatchInfo" style="display:none;"><span id="sbLastMatchTime"></span></span>
+
+    <!-- Player Profiles — Enhanced -->
+    <div class="card">
+        <div class="section-title">
+            <span><i class="fa-solid fa-users"></i> Player Profiles</span>
+            <span style="font-size:11px;color:var(--text-muted);font-weight:600;">All saved matches</span>
+        </div>
+        <div id="sbPlayerProfiles">
+            <div class="sb-player-grid">
+                <div class="skeleton skeleton-card" style="height:280px;border-radius:18px;"></div>
+                <div class="skeleton skeleton-card" style="height:280px;border-radius:18px;"></div>
+                <div class="skeleton skeleton-card" style="height:280px;border-radius:18px;"></div>
+                <div class="skeleton skeleton-card" style="height:280px;border-radius:18px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="card" id="leaderboardCard" style="display:none;">
+        <div class="section-title">
+            <span><i class="fa-solid fa-ranking-star"></i> Leaderboard</span>
+        </div>
+        <div id="leaderboardContent"></div>
+    </div>
+
+    <!-- Recent matches from Supabase -->
+    <div class="card">
+        <div class="section-title">
+            <span><i class="fa-solid fa-clock-rotate-left"></i> Recent Matches</span>
+        </div>
+        <div id="sbRecentMatches">
+            <div class="skeleton skeleton-card"></div>
+            <div class="skeleton skeleton-card"></div>
+        </div>
+    </div>
+
+    <!-- ⚠️ DANGER ZONE — Password protected Reset -->
+    <div class="card" style="border:2px solid var(--danger);">
+        <div class="section-title" style="color:var(--danger);">
+            <span><i class="fa-solid fa-triangle-exclamation"></i> Danger Zone</span>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;">এই section এ সব data permanently delete হয়ে যাবে। Password লাগবে।</p>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+            <button class="btn btn-danger" onclick="openResetModal('history')" style="width:100%;">
+                <i class="fa-solid fa-trash"></i> Match History মুছে ফেলো
+            </button>
+            <button class="btn btn-danger" onclick="openResetModal('profiles')" style="width:100%;">
+                <i class="fa-solid fa-user-slash"></i> Player Profiles মুছে ফেলো
+            </button>
+            <button class="btn btn-danger" onclick="openResetModal('all')" style="width:100%;background:linear-gradient(135deg,#7f1d1d,#ef4444);">
+                <i class="fa-solid fa-bomb"></i> সব কিছু Delete করো (Full Reset)
+            </button>
+        </div>
+    </div>
+
+    <!-- Setup Guide -->
+    <div class="card" id="sbSetupGuide" style="display:none;">
+        <div class="section-title" style="color:#f59e0b;">
+            <span><i class="fa-solid fa-triangle-exclamation"></i> Supabase Setup Required</span>
+        </div>
+        <p style="font-size:13px;color:var(--text-muted);margin-bottom:14px;">Run this SQL in your Supabase dashboard → SQL Editor:</p>
+        <div class="sql-box" id="sqlSchemaBox">Loading SQL...</div>
+        <button class="btn btn-outline" onclick="copySQLSchema()" style="width:100%;margin-top:4px;">
+            <i class="fa-solid fa-copy"></i> Copy SQL Schema
+        </button>
+    </div>
+</div>
+
+<!-- PASSWORD RESET MODAL -->
+<div class="modal-overlay" id="resetModal" style="display:none;" onclick="closeResetModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()" style="max-width:380px;">
+        <h2 style="color:var(--danger);font-size:18px;"><i class="fa-solid fa-lock"></i> Protected Reset</h2>
+        <p style="text-align:center;color:var(--text-muted);font-size:13px;margin-bottom:16px;" id="resetModalDesc">এই action টি সব data মুছে দেবে।</p>
+        <div style="margin-bottom:14px;">
+            <label style="font-size:12px;font-weight:700;color:var(--text-muted);display:block;margin-bottom:6px;">Password দাও:</label>
+            <input type="password" id="resetPassInput" placeholder="••••••••"
+                style="width:100%;border:2px solid var(--border-color);background:var(--bg-color);color:var(--text-main);border-radius:14px;padding:14px;font-size:17px;font-weight:800;outline:none;text-align:center;letter-spacing:4px;"
+                onkeydown="if(event.key==='Enter') confirmReset()">
+        </div>
+        <p id="resetPassError" style="color:var(--danger);font-size:12px;font-weight:700;text-align:center;display:none;margin-bottom:10px;">❌ ভুল password! আবার চেষ্টা করো।</p>
+        <div class="flex-between">
+            <button class="btn btn-outline" onclick="document.getElementById('resetModal').style.display='none'" style="width:48%;">বাতিল</button>
+            <button class="btn btn-danger" onclick="confirmReset()" style="width:48%;">
+                <i class="fa-solid fa-trash"></i> Delete করো
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="credit" aria-label="Made by Akib Hossain">
+  <span class="credit-icon">✦</span>
+  <span class="credit-made">Made by</span>
+  <div class="credit-name-wrap">
+    <span class="credit-tw" id="creditTw"></span>
+    <span class="credit-cursor" id="creditCursor"></span>
   </div>
+</div>
+
+<script>
+/* ─── FIBER OPTIC WIPE LOGIC ─── */
+function triggerWipe(callback) {
+    const overlay = document.createElement('div');
+    overlay.className = 'wipe-overlay';
+
+    // Premium Logo Reveal within the wipe
+    const logo = document.createElement('div');
+    logo.className = 'wipe-logo';
+    logo.innerHTML = '<i class="fa-solid fa-layer-group" style="font-size:42px; color:#0ea5e9;"></i> CALL BRIDGE';
+    overlay.appendChild(logo);
+
+    document.body.appendChild(overlay);
+
+    const colors = ['#0ea5e9', '#f59e0b', '#a855f7', '#22c55e', '#f97316'];
+    const stripCount = 80; // Total thin strips
+
+    for(let i = 0; i < stripCount; i++) {
+        const strip = document.createElement('div');
+        strip.className = 'wipe-strip';
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        
+        strip.style.backgroundColor = color;
+        strip.style.boxShadow = `0 0 12px ${color}`;
+        
+        // Random opacity between 0.7 and 1.0
+        const op = (Math.random() * 0.3 + 0.7).toFixed(2);
+        strip.style.setProperty('--strip-op', op);
+        
+        // Smooth random stagger up to 400ms for that "aste aste smoothly" feel
+        const delay = Math.random() * 400; 
+        
+        // Slightly longer duration (1.2s) for gracefulness
+        strip.style.animation = `stripInOut 1.2s cubic-bezier(0.4, 0, 0.2, 1) ${delay}ms forwards`;
+
+        overlay.appendChild(strip);
+    }
+
+    // Fire the callback when the curtain is covering the screen
+    setTimeout(() => {
+        if(callback) callback();
+    }, 700);
+
+    // Clean up DOM after transition finishes
+    setTimeout(() => {
+        if(document.body.contains(overlay)) document.body.removeChild(overlay);
+    }, 2200);
+}
+
+/* ─── TYPEWRITER CREDIT ─── */
+(function(){
+    const el = document.getElementById('creditTw');
+    const cursor = document.getElementById('creditCursor');
+    if(!el) return;
+    const text = 'AKIB HOSSAIN';
+    let i=0, deleting=false, pause=0;
+    function type(){
+        if(pause > 0){ pause--; setTimeout(type, 80); return; }
+        if(!deleting){
+            el.textContent = text.slice(0, i+1);
+            i++;
+            if(i === text.length){ pause = 28; deleting=true; setTimeout(type, 80); return; }
+            setTimeout(type, 110);
+        } else {
+            el.textContent = text.slice(0, i-1);
+            i--;
+            if(i === 0){ deleting=false; pause=12; setTimeout(type, 80); return; }
+            setTimeout(type, 60);
+        }
+    }
+    setTimeout(type, 600);
+})();
+</script>
+
+<!-- ════════════════════════════════════════════════
+     SUPABASE CDN CLIENT
+     ════════════════════════════════════════════════ -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+
+<script>
+/* ════════════════════════════════════════════════════════════════
+   SUPABASE INTEGRATION — Call Bridge Calculator Pro
+   ════════════════════════════════════════════════════════════════
+
+   SETUP STEPS:
+   1. Go to https://supabase.com and create a free project
+   2. Go to SQL Editor and run the SQL schema below
+   3. Go to Project Settings → API and copy your URL + anon key
+   4. Replace SUPABASE_URL and SUPABASE_ANON_KEY below
+
+   SQL SCHEMA (run in Supabase SQL Editor):
+   ─────────────────────────────────────────
+   -- Table: matches
+   CREATE TABLE IF NOT EXISTS public.matches (
+     id            BIGSERIAL PRIMARY KEY,
+     played_at     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+     player_names  TEXT[]      NOT NULL,
+     player_emojis TEXT[]      NOT NULL DEFAULT '{}',
+     final_scores  NUMERIC[]   NOT NULL,
+     winner_name   TEXT        NOT NULL,
+     total_rounds  INTEGER     NOT NULL DEFAULT 0,
+     oc_rule       BOOLEAN     NOT NULL DEFAULT false,
+     exp_history   JSONB       NOT NULL DEFAULT '[]',
+     ach_history   JSONB       NOT NULL DEFAULT '[]'
+   );
+
+   -- Table: player_stats (upserted per match)
+   CREATE TABLE IF NOT EXISTS public.player_stats (
+     id              BIGSERIAL PRIMARY KEY,
+     player_name     TEXT        NOT NULL UNIQUE,
+     emoji           TEXT        NOT NULL DEFAULT '😎',
+     matches_played  INTEGER     NOT NULL DEFAULT 0,
+     matches_won     INTEGER     NOT NULL DEFAULT 0,
+     total_score     NUMERIC     NOT NULL DEFAULT 0,
+     highest_score   NUMERIC     NOT NULL DEFAULT 0,
+     lowest_score    NUMERIC     NOT NULL DEFAULT 0,
+     total_rounds    INTEGER     NOT NULL DEFAULT 0,
+     total_calls     INTEGER     NOT NULL DEFAULT 0,
+     calls_achieved  INTEGER     NOT NULL DEFAULT 0,
+     oc_penalties    INTEGER     NOT NULL DEFAULT 0,
+     last_played     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+     updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+   );
+
+   -- Enable Row Level Security (allow anonymous reads & writes)
+   ALTER TABLE public.matches    ENABLE ROW LEVEL SECURITY;
+   ALTER TABLE public.player_stats ENABLE ROW LEVEL SECURITY;
+
+   CREATE POLICY "public_all_matches"      ON public.matches      FOR ALL USING (true) WITH CHECK (true);
+   CREATE POLICY "public_all_player_stats" ON public.player_stats FOR ALL USING (true) WITH CHECK (true);
+
+   -- Optimized indexes
+   CREATE INDEX IF NOT EXISTS idx_matches_played_at ON public.matches(played_at DESC);
+   CREATE INDEX IF NOT EXISTS idx_player_stats_name ON public.player_stats(player_name);
+   ─────────────────────────────────────────────────────────────── */
+
+// ── Supabase credentials ──────────────────────────────────────
+const SUPABASE_URL      = 'https://teujbpvtonioxtwwvsxn.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRldWpicHZ0b25pb3h0d3d2c3huIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE1OTE5ODksImV4cCI6MjA5NzE2Nzk4OX0.GRjMzgOqSuHpSmPvtLjUBdAe6kZ5qLSL0P9CX6H6yic';
+
+// ── Init client ───────────────────────────────────────────────
+let SB = null;
+let sbReady = false;
+
+try {
+    SB = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+    sbReady = true;
+} catch(e) {
+    console.warn('Supabase init failed:', e);
+}
+
+// ── SQL Schema string (for copy-to-clipboard helper) ─────────
+const SB_SQL_SCHEMA = `-- Run this in Supabase → SQL Editor
+CREATE TABLE IF NOT EXISTS public.matches (
+  id            BIGSERIAL PRIMARY KEY,
+  played_at     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  player_names  TEXT[]      NOT NULL,
+  player_emojis TEXT[]      NOT NULL DEFAULT '{}',
+  final_scores  NUMERIC[]   NOT NULL,
+  winner_name   TEXT        NOT NULL,
+  total_rounds  INTEGER     NOT NULL DEFAULT 0,
+  oc_rule       BOOLEAN     NOT NULL DEFAULT false,
+  exp_history   JSONB       NOT NULL DEFAULT '[]',
+  ach_history   JSONB       NOT NULL DEFAULT '[]'
+);
+
+CREATE TABLE IF NOT EXISTS public.player_stats (
+  id              BIGSERIAL PRIMARY KEY,
+  player_name     TEXT        NOT NULL UNIQUE,
+  emoji           TEXT        NOT NULL DEFAULT '😎',
+  matches_played  INTEGER     NOT NULL DEFAULT 0,
+  matches_won     INTEGER     NOT NULL DEFAULT 0,
+  total_score     NUMERIC     NOT NULL DEFAULT 0,
+  highest_score   NUMERIC     NOT NULL DEFAULT 0,
+  lowest_score    NUMERIC     NOT NULL DEFAULT 0,
+  total_rounds    INTEGER     NOT NULL DEFAULT 0,
+  total_calls     INTEGER     NOT NULL DEFAULT 0,
+  calls_achieved  INTEGER     NOT NULL DEFAULT 0,
+  oc_penalties    INTEGER     NOT NULL DEFAULT 0,
+  last_played     TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
+
+ALTER TABLE public.matches      ENABLE ROW LEVEL SECURITY;
+ALTER TABLE public.player_stats ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "public_all_matches"      ON public.matches      FOR ALL USING (true) WITH CHECK (true);
+CREATE POLICY "public_all_player_stats" ON public.player_stats FOR ALL USING (true) WITH CHECK (true);
+CREATE INDEX IF NOT EXISTS idx_matches_played_at ON public.matches(played_at DESC);
+CREATE INDEX IF NOT EXISTS idx_player_stats_name ON public.player_stats(player_name);`;
+
+// ── Table auto-check on load ───────────────────────────────────
+async function sbCheckSetup() {
+    if (!sbReady || !SB) return false;
+    try {
+        const { error } = await SB.from('matches').select('id').limit(1);
+        if (error && error.code === '42P01') {
+            // Table doesn't exist — show setup guide
+            const guide = document.getElementById('sbSetupGuide');
+            const sqlBox = document.getElementById('sqlSchemaBox');
+            if (guide) guide.style.display = 'block';
+            if (sqlBox) sqlBox.textContent = SB_SQL_SCHEMA;
+            sbSetBadge('error', '⚠️ Tables not found');
+            return false;
+        }
+        sbSetBadge('ok', '✓ Connected');
+        return true;
+    } catch(e) {
+        sbSetBadge('error', 'Connection failed');
+        return false;
+    }
+}
+
+function sbSetBadge(state, text) {
+    const badge = document.getElementById('sbStatusBadge');
+    if (!badge) return;
+    badge.className = 'sb-badge' + (state === 'error' ? ' error' : state === 'loading' ? ' loading' : '');
+    badge.innerHTML = `<span class="sb-badge-dot"></span> ${text}`;
+
+    // Also update small header badge
+    const hBadge = document.getElementById('sbConnBadge');
+    if (hBadge) {
+        hBadge.className = 'sb-badge' + (state === 'error' ? ' error' : '');
+        hBadge.innerHTML = `<span class="sb-badge-dot"></span> ${state === 'ok' ? 'Supabase ✓' : text}`;
+    }
+}
+
+function copySQLSchema() {
+    navigator.clipboard.writeText(SB_SQL_SCHEMA).then(() => {
+        if (typeof showToast === 'function') showToast('✅ SQL Schema copied!', 'success');
+    }).catch(() => {
+        if (typeof showToast === 'function') showToast('Copy failed — please copy manually', 'warning');
+    });
+}
+
+/* ════════════════════════════════════════════════════════════════
+   SAVE MATCH TO SUPABASE
+   Called from finishAndSaveGame() after Firebase save
+   ════════════════════════════════════════════════════════════════ */
+async function sbSaveMatch(matchData) {
+    if (!sbReady || !SB) return;
+
+    const {
+        players: pNames,
+        avatars:  pEmojis,
+        scores:   finalScores,
+        winner,
+        totalRounds,
+        expHistory:  expH,
+        achHistory:  achH,
+    } = matchData;
+
+    const maxScore  = Math.max(...finalScores);
+    const winnerIdx = finalScores.indexOf(maxScore);
+
+    // ── 1. Insert into matches ──────────────────────────────────
+    const { error: matchErr } = await SB.from('matches').insert({
+        played_at:     new Date().toISOString(),
+        player_names:  pNames,
+        player_emojis: pEmojis,
+        final_scores:  finalScores.map(s => Number(s.toFixed(2))),
+        winner_name:   winner,
+        total_rounds:  totalRounds,
+        oc_rule:       typeof ocRuleEnabled !== 'undefined' ? ocRuleEnabled : false,
+        exp_history:   expH,
+        ach_history:   achH,
+    });
+
+    if (matchErr) {
+        console.error('Supabase match save error:', matchErr);
+        if (matchErr.code === '42P01') {
+            if (typeof showToast === 'function')
+                showToast('⚠️ Supabase tables not set up yet', 'warning', 4000);
+        }
+        return;
+    }
+
+    // ── 2. Upsert per-player stats ──────────────────────────────
+    for (let i = 0; i < pNames.length; i++) {
+        const name   = normalizeName(pNames[i]);
+        const emoji  = pEmojis[i] || '😎';
+        const score  = finalScores[i];
+        const isWin  = i === winnerIdx;
+
+        // Calculate round-level stats for this player
+        let totalCalls = 0, callsAchieved = 0, ocPenalties = 0;
+        if (expH && achH && expH[i] && achH[i]) {
+            expH[i].forEach((exp, r) => {
+                const ach = achH[i][r];
+                if (exp === 'C' || exp === null || exp === undefined) return;
+                const expNum = Number(exp) || 0;
+                const achNum = Number(ach) || 0;
+                totalCalls += expNum;
+                // callsAchieved = কতবার সঠিক call দিয়ে exactly সঠিক পেয়েছে (ach === exp)
+                if (achNum === expNum) callsAchieved++;
+                // OC = কতবার call+2 বা বেশি পেয়েছে (over-card)
+                if (achNum >= expNum + 2) ocPenalties++;
+            });
+        }
+
+        // Fetch existing stats (case-insensitive — "akib"/"Akib"/"AKIB" are the same player)
+        const { data: existing } = await SB
+            .from('player_stats')
+            .select('*')
+            .ilike('player_name', name)
+            .maybeSingle();
+
+        if (existing) {
+            // Update existing player record (matched by id, so casing differences never split the player)
+            const updatedHighest = Math.max(existing.highest_score, score);
+            const updatedLowest  = existing.matches_played === 0
+                ? score
+                : Math.min(existing.lowest_score, score);
+
+            await SB.from('player_stats').update({
+                player_name:    name, // keep the stored name normalized going forward
+                emoji,
+                matches_played: existing.matches_played + 1,
+                matches_won:    existing.matches_won + (isWin ? 1 : 0),
+                total_score:    Number((existing.total_score + score).toFixed(2)),
+                highest_score:  updatedHighest,
+                lowest_score:   updatedLowest,
+                total_rounds:   existing.total_rounds + totalRounds,
+                total_calls:    existing.total_calls + totalCalls,
+                calls_achieved: existing.calls_achieved + callsAchieved,
+                oc_penalties:   existing.oc_penalties + ocPenalties,
+                last_played:    new Date().toISOString(),
+                updated_at:     new Date().toISOString(),
+            }).eq('id', existing.id);
+        } else {
+            // Insert new player record
+            await SB.from('player_stats').insert({
+                player_name:    name,
+                emoji,
+                matches_played: 1,
+                matches_won:    isWin ? 1 : 0,
+                total_score:    Number(score.toFixed(2)),
+                highest_score:  score,
+                lowest_score:   score,
+                total_rounds:   totalRounds,
+                total_calls:    totalCalls,
+                calls_achieved: callsAchieved,
+                oc_penalties:   ocPenalties,
+                last_played:    new Date().toISOString(),
+                updated_at:     new Date().toISOString(),
+            });
+        }
+    }
+
+    // ── 3. Update dashboard counts after save ───────────────────
+    await sbUpdateDashboard();
+    if (typeof refreshKnownPlayersList === 'function') refreshKnownPlayersList();
+    if (typeof showToast === 'function')
+        showToast('📊 Stats saved to Supabase!', 'success', 2500);
+}
+
+/* ════════════════════════════════════════════════════════════════
+   DASHBOARD STATS (Total / Today / Week / Month / Last time)
+   ════════════════════════════════════════════════════════════════ */
+async function sbUpdateDashboard() {
+    if (!sbReady || !SB) return;
+
+    try {
+        const now   = new Date();
+        const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString();
+        const weekAgo = new Date(now - 7 * 86400000).toISOString();
+        const monthStart = new Date(now.getFullYear(), now.getMonth(), 1).toISOString();
+
+        // Parallel queries for efficiency
+        const [rTotal, rToday, rWeek, rMonth, rLast] = await Promise.all([
+            SB.from('matches').select('id', { count: 'exact', head: true }),
+            SB.from('matches').select('id', { count: 'exact', head: true }).gte('played_at', today),
+            SB.from('matches').select('id', { count: 'exact', head: true }).gte('played_at', weekAgo),
+            SB.from('matches').select('id', { count: 'exact', head: true }).gte('played_at', monthStart),
+            SB.from('matches').select('played_at').order('played_at', {ascending: false}).limit(1),
+        ]);
+
+        const total  = rTotal.count  ?? 0;
+        const today_ = rToday.count  ?? 0;
+        const week_  = rWeek.count   ?? 0;
+        const month_ = rMonth.count  ?? 0;
+        const lastDt = rLast.data?.[0]?.played_at;
+
+        // ── Update hidden placeholders in profilesView (kept for JS compatibility) ──
+        sbAnimateNum('sbP_total', total);
+        sbAnimateNum('sbP_today', today_);
+        sbAnimateNum('sbP_week',  week_);
+        sbAnimateNum('sbP_month', month_);
+
+        // Last match time
+        if (lastDt) {
+            const fmt = new Date(lastDt).toLocaleString();
+            const el  = document.getElementById('sbLastCalcTime');
+            const el2 = document.getElementById('sbLastMatchTime');
+            const lm  = document.getElementById('sbLastMatchInfo');
+            if (el)  el.textContent  = `Last: ${fmt}`;
+            if (el2) el2.textContent = fmt;
+            if (lm)  lm.style.display = 'block';
+        }
+
+    } catch(e) {
+        console.warn('sbUpdateDashboard error:', e);
+    }
+}
+
+function sbAnimateNum(id, val) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.textContent = val;
+    const card = el.closest('.sb-stat-card');
+    if (card) {
+        card.classList.remove('updated');
+        void card.offsetWidth;
+        card.classList.add('updated');
+        setTimeout(() => card.classList.remove('updated'), 500);
+    }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   LOAD PROFILES VIEW
+   Player profiles + recent matches from Supabase
+   ════════════════════════════════════════════════════════════════ */
+async function sbLoadProfiles() {
+    if (!sbReady || !SB) {
+        sbSetBadge('error', 'Not connected');
+        document.getElementById('sbPlayerProfiles').innerHTML =
+            `<div class="sb-error"><i class="fa-solid fa-circle-xmark"></i> Supabase client not initialised</div>`;
+        return;
+    }
+
+    sbSetBadge('loading', 'Loading…');
+
+    // Check tables exist
+    const ok = await sbCheckSetup();
+    if (!ok) {
+        document.getElementById('sbPlayerProfiles').innerHTML =
+            `<div class="sb-error"><i class="fa-solid fa-triangle-exclamation"></i> Tables not found. See Setup Guide below.</div>`;
+        document.getElementById('sbRecentMatches').innerHTML = '';
+        return;
+    }
+
+    try {
+        // ── Load stats in parallel ──────────────────────────────
+        const [pRes, mRes] = await Promise.all([
+            SB.from('player_stats')
+                .select('*')
+                .order('matches_won', { ascending: false }),
+            SB.from('matches')
+                .select('played_at, player_names, player_emojis, final_scores, winner_name, total_rounds')
+                .order('played_at', { ascending: false })
+                .limit(10),
+        ]);
+
+        if (pRes.error) throw pRes.error;
+        if (mRes.error) throw mRes.error;
+
+        sbRenderPlayerProfiles(pRes.data || []);
+        sbRenderRecentMatches(mRes.data  || []);
+        await sbUpdateDashboard();
+        sbSetBadge('ok', '✓ Connected');
+
+    } catch(e) {
+        console.error('sbLoadProfiles error:', e);
+        sbSetBadge('error', 'Load failed');
+        document.getElementById('sbPlayerProfiles').innerHTML =
+            `<div class="sb-error"><i class="fa-solid fa-circle-xmark"></i> ${e.message || 'Unknown error'}</div>`;
+    }
+}
+
+/* ── Render player profile cards — ENHANCED ─────────────────── */
+function sbRenderPlayerProfiles(players) {
+    const cont = document.getElementById('sbPlayerProfiles');
+    if (!cont) return;
+
+    if (players.length === 0) {
+        cont.innerHTML = `<div class="sb-empty">
+            <div class="sb-empty-icon">👤</div>
+            <div class="sb-empty-text">No player data yet. Finish a game to see profiles!</div>
+        </div>`;
+        return;
+    }
+
+    // Sort by win rate then total score
+    players.sort((a, b) => {
+        const wrA = a.matches_played ? a.matches_won / a.matches_played : 0;
+        const wrB = b.matches_played ? b.matches_won / b.matches_played : 0;
+        return wrB - wrA || b.total_score - a.total_score;
+    });
+
+    const rankEmojis = ['🥇', '🥈', '🥉', '4️⃣', '5️⃣', '6️⃣'];
+
+    // Calculate global average calls for comparison
+    const allAvgCalls = players.map(p => p.total_rounds ? p.total_calls / p.total_rounds : 0);
+    const globalAvgCall = allAvgCalls.length ? allAvgCalls.reduce((a,b)=>a+b,0)/allAvgCalls.length : 3;
+
+    cont.innerHTML = `<div class="sb-player-grid">` + players.map((p, idx) => {
+        const avgScore  = p.matches_played ? (p.total_score / p.matches_played).toFixed(1) : '0.0';
+        const winRate   = p.matches_played ? Math.round((p.matches_won / p.matches_played) * 100) : 0;
+        const totalRounds = p.total_rounds || 0;
+        const totalCalls  = p.total_calls  || 0;
+        const callsAch    = p.calls_achieved || 0;
+        const ocCount     = p.oc_penalties || 0;
+        const lastPlay    = p.last_played ? new Date(p.last_played).toLocaleDateString() : '—';
+        const rankLabel   = rankEmojis[idx] || `#${idx + 1}`;
+        const avgCalls    = totalRounds ? (totalCalls / totalRounds).toFixed(1) : '0';
+
+        // ── Correct call stats ──────────────────────────────────
+        // calls_achieved = rounds where player got EXACTLY their call (ach === exp)
+        // সঠিক call দিয়ে সঠিক পেয়েছে = calls_achieved
+        const exactHits   = callsAch;
+        // সঠিক call দিয়ে কম পেয়েছে = (total normal rounds) - exactHits - ocCount
+        // normal rounds = totalRounds (excluding custom/special)
+        const missedCalls = Math.max(0, totalRounds - exactHits - ocCount);
+        // OC = সঠিক call দিয়ে বেশি পেয়েছে (over card = call+2 বা বেশি)
+
+        // Call accuracy = exact hits / total rounds
+        const callAcc  = totalRounds ? Math.round((exactHits / totalRounds) * 100) : 0;
+        const accColor = callAcc >= 70 ? '#10b981' : callAcc >= 50 ? '#f59e0b' : '#ef4444';
+
+        // ── Risk Style ─────────────────────────────────────────
+        // OC বেশি = সে কম call দিয়ে বার বার বেশি achieve করেছে = Safe Player (নিরাপদ খেলে)
+        // OC কম থেকেও avg call বেশি = বড় call ধরে ঝুঁকি নিয়েছে = Aggressive
+        const avgCallNum  = totalRounds ? totalCalls / totalRounds : 0;
+        const ocRate      = totalRounds ? ocCount / totalRounds : 0;
+        let riskLabel, riskColor;
+        if (ocRate >= 0.20) {
+            riskLabel = '🛡️ Safe Player'; riskColor = '#10b981';
+        } else if (avgCallNum >= globalAvgCall + 1.2) {
+            riskLabel = '🔥 Aggressive'; riskColor = '#ef4444';
+        } else {
+            riskLabel = '⚖️ Balanced'; riskColor = '#f59e0b';
+        }
+
+        return `<div class="sb-player-card">
+            <div class="sb-player-header">
+                <div class="sb-player-avatar">${p.emoji || '😎'}</div>
+                <div>
+                    <div class="sb-player-name">${escHtml(p.player_name)}</div>
+                    <div class="sb-player-rank">${rankLabel} · ${p.matches_played} ম্যাচ</div>
+                </div>
+            </div>
+
+            <!-- Play Style Badge -->
+            <div style="text-align:center;margin:6px 0 10px;">
+                <span style="display:inline-flex;align-items:center;gap:5px;padding:5px 14px;border-radius:20px;font-size:12px;font-weight:800;background:${riskColor}20;color:${riskColor};border:1.5px solid ${riskColor}55;">
+                    ${riskLabel}
+                </span>
+            </div>
+
+            <!-- Core Stats -->
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">🏆 Wins</span>
+                <span class="sb-stat-val gold">${p.matches_won} <small>(${winRate}%)</small></span>
+            </div>
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">📊 Avg Score</span>
+                <span class="sb-stat-val ${Number(avgScore)>=0?'pos':'neg'}">${Number(avgScore)>=0?'+':''}${avgScore}</span>
+            </div>
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">🔝 Best Match</span>
+                <span class="sb-stat-val pos">+${Number(p.highest_score).toFixed(1)}</span>
+            </div>
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">📉 Worst Match</span>
+                <span class="sb-stat-val neg">${Number(p.lowest_score).toFixed(1)}</span>
+            </div>
+
+            <div style="height:1px;background:var(--border-color);margin:8px 0;"></div>
+
+            <!-- Call Detail Stats -->
+            <div style="font-size:10px;font-weight:800;color:var(--text-muted);letter-spacing:.5px;margin-bottom:6px;">CALL RECORDS (${totalRounds} rounds)</div>
+
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">✅ সঠিক call → সঠিক পেয়েছে</span>
+                <span class="sb-stat-val" style="color:#10b981;font-weight:900;">${exactHits}x</span>
+            </div>
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">❌ সঠিক call → কম পেয়েছে</span>
+                <span class="sb-stat-val" style="color:#ef4444;font-weight:900;">${missedCalls}x</span>
+            </div>
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">🃏 OC (call+2 বেশি পেয়েছে)</span>
+                <span class="sb-stat-val" style="color:${ocCount>0?'#f59e0b':'#10b981'};font-weight:900;">${ocCount}x ${ocCount>0?'⚠️':'✅'}</span>
+            </div>
+
+            <div style="height:1px;background:var(--border-color);margin:8px 0;"></div>
+
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">📞 Avg Call/Round</span>
+                <span class="sb-stat-val" style="color:var(--primary);">${avgCalls}</span>
+            </div>
+            <div class="sb-stat-row">
+                <span class="sb-stat-label">📅 Last Played</span>
+                <span class="sb-stat-val" style="font-size:11px;">${lastPlay}</span>
+            </div>
+
+            <!-- Call Accuracy Bar -->
+            <div style="margin-top:10px;">
+                <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-muted);margin-bottom:3px;">
+                    <span>🎯 Call Accuracy</span><span style="color:${accColor};font-weight:800;">${callAcc}%</span>
+                </div>
+                <div class="sb-eff-bar"><div class="sb-eff-fill" style="width:${callAcc}%;background:${accColor};"></div></div>
+            </div>
+
+            <!-- Win Rate Bar -->
+            <div style="margin-top:7px;">
+                <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--text-muted);margin-bottom:3px;">
+                    <span>🏅 Win Rate</span><span style="font-weight:700;">${winRate}%</span>
+                </div>
+                <div class="sb-eff-bar"><div class="sb-eff-fill" style="width:${winRate}%;"></div></div>
+            </div>
+        </div>`;
+    }).join('') + `</div>`;
+
+    // Render leaderboard too
+    renderLeaderboard(players);
+}
+
+/* ── Render leaderboard ──────────────────────────────────────── */
+function renderLeaderboard(players) {
+    const card = document.getElementById('leaderboardCard');
+    const cont = document.getElementById('leaderboardContent');
+    if (!card || !cont || !players || players.length === 0) return;
+    card.style.display = 'block';
+
+    // Least calls per round (safe/conservative)
+    const sorted = [...players].sort((a,b) =>
+        (a.total_calls/Math.max(a.total_rounds,1)) - (b.total_calls/Math.max(b.total_rounds,1))
+    );
+    const leastCalls = sorted[0];
+    const mostCalls  = sorted[sorted.length - 1];
+
+    // Most OC = কম call দিয়ে বেশি achieve করেছে = সবচেয়ে safe/conservative player
+    const safestPlayer = [...players].sort((a,b) => (b.oc_penalties||0) - (a.oc_penalties||0))[0];
+
+    // Best call accuracy (exact hits / total rounds)
+    const bestAcc = [...players].sort((a,b) => {
+        const accA = a.total_rounds ? (a.calls_achieved||0)/a.total_rounds : 0;
+        const accB = b.total_rounds ? (b.calls_achieved||0)/b.total_rounds : 0;
+        return accB - accA;
+    })[0];
+
+    cont.innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+        <div style="background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.3);border-radius:14px;padding:14px;text-align:center;">
+            <div style="font-size:24px;">${leastCalls?.emoji||'😎'}</div>
+            <div style="font-weight:900;font-size:14px;color:#10b981;margin:4px 0 2px;">${escHtml(leastCalls?.player_name||'—')}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">🛡️ সবচেয়ে কম call নেয়</div>
+            <div style="font-size:13px;font-weight:800;color:#10b981;">${leastCalls ? (leastCalls.total_calls/Math.max(leastCalls.total_rounds,1)).toFixed(1) : '0'}/round</div>
+        </div>
+        <div style="background:rgba(239,68,68,.08);border:1.5px solid rgba(239,68,68,.3);border-radius:14px;padding:14px;text-align:center;">
+            <div style="font-size:24px;">${mostCalls?.emoji||'😎'}</div>
+            <div style="font-weight:900;font-size:14px;color:#ef4444;margin:4px 0 2px;">${escHtml(mostCalls?.player_name||'—')}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">📞 সবচেয়ে বেশি call নেয়</div>
+            <div style="font-size:13px;font-weight:800;color:#ef4444;">${mostCalls ? (mostCalls.total_calls/Math.max(mostCalls.total_rounds,1)).toFixed(1) : '0'}/round</div>
+        </div>
+        <div style="background:rgba(16,185,129,.08);border:1.5px solid rgba(16,185,129,.3);border-radius:14px;padding:14px;text-align:center;">
+            <div style="font-size:24px;">${safestPlayer?.emoji||'😎'}</div>
+            <div style="font-weight:900;font-size:14px;color:#10b981;margin:4px 0 2px;">${escHtml(safestPlayer?.player_name||'—')}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">🛡️ সবচেয়ে বেশি OC পেয়েছে (Safe Player)</div>
+            <div style="font-size:13px;font-weight:800;color:#10b981;">${safestPlayer?.oc_penalties||0}x over-card</div>
+        </div>
+        <div style="background:rgba(79,70,229,.08);border:1.5px solid rgba(79,70,229,.3);border-radius:14px;padding:14px;text-align:center;">
+            <div style="font-size:24px;">${bestAcc?.emoji||'😎'}</div>
+            <div style="font-weight:900;font-size:14px;color:var(--primary);margin:4px 0 2px;">${escHtml(bestAcc?.player_name||'—')}</div>
+            <div style="font-size:11px;color:var(--text-muted);margin-bottom:4px;">🎯 সবচেয়ে accurate caller</div>
+            <div style="font-size:13px;font-weight:800;color:var(--primary);">${bestAcc?.total_rounds ? Math.round((bestAcc.calls_achieved||0)/bestAcc.total_rounds*100) : 0}% accuracy</div>
+        </div>
+    </div>`;
+}
+
+/* ── Render recent matches ───────────────────────────────────── */
+function sbRenderRecentMatches(matches) {
+    const cont = document.getElementById('sbRecentMatches');
+    if (!cont) return;
+
+    if (matches.length === 0) {
+        cont.innerHTML = `<div class="sb-empty">
+            <div class="sb-empty-icon">📭</div>
+            <div class="sb-empty-text">No matches saved yet</div>
+        </div>`;
+        return;
+    }
+
+    cont.innerHTML = matches.map(m => {
+        const maxS = Math.max(...m.final_scores);
+        const dt   = new Date(m.played_at).toLocaleString();
+        const scores = m.final_scores.map((s, i) => {
+            const isW = s === maxS;
+            return `<div class="sb-ps-cell ${isW ? 'winner' : ''}">
+                <span class="sb-ps-emoji">${(m.player_emojis && m.player_emojis[i]) || '😎'}</span>
+                <div class="sb-ps-name" title="${escHtml(m.player_names[i])}">${escHtml(m.player_names[i])}</div>
+                <div class="sb-ps-score ${isW ? 'w' : 's < 0' ? 'l' : ''}">${isW ? '🏆 ' : ''}${Number(s).toFixed(1)}</div>
+            </div>`;
+        }).join('');
+
+        return `<div class="sb-history-item">
+            <div class="sb-history-meta">
+                <span><i class="fa-solid fa-calendar-day" style="margin-right:4px;"></i>${dt}</span>
+                <span class="sb-history-badge">${m.total_rounds} rounds</span>
+            </div>
+            <div class="sb-player-scores">${scores}</div>
+        </div>`;
+    }).join('');
+}
+
+/* ── Helper: escape HTML to prevent XSS ─────────────────────── */
+function escHtml(str) {
+    return String(str)
+        .replace(/&/g,'&amp;').replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+/* ── Helper: normalize a player name so "akib", "AKIB", "Akib" etc.
+   are all treated as the SAME player, regardless of who typed it or
+   on which device — capitalizes first letter of each word/segment. ── */
+function normalizeName(str) {
+    return String(str || '')
+        .trim()
+        .replace(/\s+/g, ' ')
+        .toLowerCase()
+        .replace(/(^|[\s'-])([a-z\u00c0-\u017f])/g, (m, sep, ch) => sep + ch.toUpperCase());
+}
+
+/* ── Fetch all known player names from Supabase (for name autocomplete) ── */
+async function sbFetchKnownPlayerNames() {
+    if (!sbReady || !SB) return [];
+    try {
+        const { data, error } = await SB.from('player_stats').select('player_name');
+        if (error || !data) return [];
+        return data.map(r => r.player_name).filter(Boolean);
+    } catch (e) {
+        console.warn('sbFetchKnownPlayerNames error:', e);
+        return [];
+    }
+}
+
+/* ════════════════════════════════════════════════════════════════
+   INIT SUPABASE ON PAGE LOAD
+   ════════════════════════════════════════════════════════════════ */
+document.addEventListener('DOMContentLoaded', async () => {
+    if (!sbReady) return;
+    await sbCheckSetup();
+    await sbUpdateDashboard(); // populate mini-cards immediately
+});
+</script>
+
+<!-- ════════════════════════════════════════════════
+     FIREBASE SDK
+     ════════════════════════════════════════════════ -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import {
+    getFirestore, collection, addDoc, getDocs,
+    query, orderBy, limit, serverTimestamp, doc, setDoc, getDoc
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import {
+    getAuth, signInAnonymously, signInWithPopup,
+    GoogleAuthProvider, onAuthStateChanged, signOut
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBIqgnWv7t2WSwphfFgh7DGxD4Kl82Dsqw",
+  authDomain: "callbridgecalculator.firebaseapp.com",
+  projectId: "callbridgecalculator",
+  storageBucket: "callbridgecalculator.firebasestorage.app",
+  messagingSenderId: "607891201744",
+  appId: "1:607891201744:web:ef426b97f4cf6e94bec8d5",
+  measurementId: "G-RNG1JR0YJT"
+};
+
+const app  = initializeApp(firebaseConfig);
+const db   = getFirestore(app);
+const auth = getAuth(app);
+const googleProvider = new GoogleAuthProvider();
+
+window.FB = {
+    db, auth, googleProvider,
+    collection, addDoc, getDocs, query, orderBy, limit,
+    serverTimestamp, doc, setDoc, getDoc,
+    signInAnonymously, signInWithPopup, GoogleAuthProvider,
+    onAuthStateChanged, signOut
+};
+
+onAuthStateChanged(auth, (user) => {
+    window.currentUser = user || null;
+    updateAuthUI(user);
+    if (typeof renderHistoryAndStats === 'function') {
+        loadCloudHistory();
+    }
+});
+</script>
+
+<script>
+let currentLang = localStorage.getItem('cb_lang') || 'en';
+let ocRuleEnabled = localStorage.getItem('cb_oc_rule') === 'true';
+const LANG = {
+    en:{game:'Game',history:'History',stats:'Stats',enterNames:'Enter Player Names',resume:'Resume',startGame:'Start Game',editRound:'Edit Round',expectedCall:'Expected Call',achievedPoints:'Achieved Points',cancel:'Cancel',save:'Save',lock:'Lock',unlock:'Unlock',total:'Total',submitRound:'Submit Round',scoreboard:'Scoreboard',undo:'Undo',round:'Round',edit:'Edit',restart:'Restart',finish:'Finish',matchHistory:'Match History',playerStats:'Player Statistics',noMatches:'No matches played yet.',noStats:'No stats available yet.',matches:'Matches',wins:'Wins',highest:'Highest',dealer:'D',fillAllCalls:'Please fill all Expected Calls.',undoNone:'No round to undo.',undoConfirm:'Undo last round?',achMustBe13:'Total achieved points must be 13.',gameNotStarted:'Game has not started yet!',finishConfirm:'Finish game and save to history?',matchSaved:'Match Saved to Cloud! ☁️',restartConfirm:'Restart the entire game?',expWarn:'Warning: Total calls',expWarnSuffix:'!',achWarn:'Total achieved',achWarnSuffix:'. Must be 13.',rankLabels:['1st 🏆','2nd','3rd','4th'],totalLabel:'Total',chooseAvatar:'Choose Avatar',manualMinus:'Minus',manualMinusTitle:'Manual Minus',manualMinusDesc:'Select a player and enter how much to minus from their total score.',manualMinusNote:'⚠️ This will be recorded as a special minus round in the scoreboard.',applyMinus:'Apply Minus',overCallNote:'Over-call penalty applied!',customEntryTitle:'Custom Entry',customEntryDesc:'Set call & score freely — no 13 restriction.',customEntrySubmit:'Submit Round'},
+    bn:{game:'গেম',history:'ইতিহাস',stats:'পরিসংখ্যান',enterNames:'খেলোয়াড়দের নাম লিখুন',resume:'চালিয়ে যান',startGame:'গেম শুরু করুন',editRound:'রাউন্ড সম্পাদনা',expectedCall:'প্রত্যাশিত ডাক',achievedPoints:'অর্জিত পয়েন্ট',cancel:'বাতিল',save:'সংরক্ষণ',lock:'লক করুন',unlock:'আনলক করুন',total:'মোট',submitRound:'রাউন্ড জমা দিন',scoreboard:'স্কোরবোর্ড',undo:'পূর্বাবস্থা',round:'রাউন্ড',edit:'সম্পাদনা',restart:'পুনরায় শুরু',finish:'শেষ করুন',matchHistory:'ম্যাচ ইতিহাস',playerStats:'খেলোয়াড় পরিসংখ্যান',noMatches:'এখনও কোনো ম্যাচ খেলা হয়নি।',noStats:'এখনও কোনো পরিসংখ্যান নেই।',matches:'ম্যাচ',wins:'জয়',highest:'সর্বোচ্চ',dealer:'ড',fillAllCalls:'সব খেলোয়াড়ের প্রত্যাশিত ডাক দিন।',undoNone:'বাতিল করার মতো কোনো রাউন্ড নেই।',undoConfirm:'শেষ রাউন্ড বাতিল করবেন?',achMustBe13:'অর্জিত পয়েন্টের যোগফল ১৩ হতে হবে।',gameNotStarted:'গেম এখনো শুরু হয়নি!',finishConfirm:'গেম শেষ করে হিস্ট্রিতে সেভ করবেন?',matchSaved:'ম্যাচ ক্লাউডে সেভ হয়েছে! ☁️',restartConfirm:'পুরো গেম রিস্টার্ট করবেন?',expWarn:'সতর্কতা: মোট ডাক',expWarnSuffix:' হয়েছে!',achWarn:'মোট অর্জিত পয়েন্ট',achWarnSuffix:'। ১৩ হতে হবে।',rankLabels:['১ম 🏆','২য়','৩য়','৪র্থ'],totalLabel:'মোট',chooseAvatar:'অ্যাভাটার বেছে নিন',manualMinus:'মাইনাস',manualMinusTitle:'ম্যানুয়াল মাইনাস',manualMinusDesc:'একজন খেলোয়াড় বেছে নিন এবং কতটুকু মাইনাস করবেন লিখুন।',manualMinusNote:'⚠️ এটি স্কোরবোর্ডে একটি বিশেষ মাইনাস রাউন্ড হিসেবে রেকর্ড হবে।',applyMinus:'মাইনাস প্রয়োগ করুন',overCallNote:'ওভার-কল পেনাল্টি প্রযোজ্য!',customEntryTitle:'কাস্টম এন্ট্রি',customEntryDesc:'যেকোনো value দিন — ১৩ এর বাধ্যবাধকতা নেই।',customEntrySubmit:'রাউন্ড জমা দিন'}
+};
+function t(k){ return LANG[currentLang][k] || k; }
+function toggleLanguage(){ currentLang = currentLang==='en' ? 'bn' : 'en'; localStorage.setItem('cb_lang', currentLang); applyLanguage(); }
+function applyLanguage(){
+    document.getElementById('langBtn').textContent = currentLang==='en' ? 'বাংলা' : 'English';
+    document.querySelectorAll('[data-key]').forEach(el => { const k=el.getAttribute('data-key'); if(k && LANG[currentLang][k]) el.textContent = LANG[currentLang][k]; });
+    const fb = document.getElementById('fixBtn');
+    if(fb){ fb.setAttribute('data-key', isExpectedLocked?'unlock':'lock'); fb.textContent = isExpectedLocked?t('unlock'):t('lock'); }
+    const sb = document.getElementById('submitRoundBtn');
+    if(sb && !sb.disabled) sb.innerHTML = `<i class="fa-solid fa-check-circle"></i> ${t('submitRound')} ${currentRound}`;
+    else if(sb) sb.innerHTML = `<i class="fa-solid fa-check-circle"></i> ${t('submitRound')}`;
+    updateTotalDisplay();
+    if(players.length > 0) renderTable();
+    renderHistoryAndStats();
+    requestAnimationFrame(() => moveNavIndicator(document.querySelector('.tab-btn.active')));
+}
+
+function toggleOCRule(){
+    ocRuleEnabled = !ocRuleEnabled;
+    localStorage.setItem('cb_oc_rule', ocRuleEnabled);
+    updateOCBtn();
+    const msg = ocRuleEnabled
+        ? '🃏 OC Rule চালু — ২+ বেশি পেলে call minus!'
+        : '🃏 OC Rule বন্ধ — over card-এ penalty নেই।';
+    showToast(msg, ocRuleEnabled ? 'warning' : 'info', 3500);
+}
+
+function updateOCBtn(){
+    const btn   = document.getElementById('ocToggleBtn');
+    const label = document.getElementById('ocBtnLabel');
+    if(!btn || !label) return;
+    if(ocRuleEnabled){
+        btn.classList.add('oc-on'); btn.classList.remove('oc-off');
+        label.textContent = 'OC: ON';
+    } else {
+        btn.classList.add('oc-off'); btn.classList.remove('oc-on');
+        label.textContent = 'OC: OFF';
+    }
+}
+
+const THEMES = [
+    {id:'',name:'Indigo',grad:'linear-gradient(135deg,#4f46e5,#8b5cf6)',dark:false},
+    {id:'dark',name:'Dark',grad:'linear-gradient(135deg,#374151,#111827)',dark:true},
+    {id:'ocean',name:'Ocean',grad:'linear-gradient(135deg,#0ea5e9,#06b6d4)',dark:false},
+    {id:'ocean-dark',name:'Ocean Night',grad:'linear-gradient(135deg,#0369a1,#0891b2)',dark:true},
+    {id:'forest',name:'Forest',grad:'linear-gradient(135deg,#16a34a,#059669)',dark:false},
+    {id:'forest-dark',name:'Forest Night',grad:'linear-gradient(135deg,#166534,#065f46)',dark:true},
+    {id:'sunset',name:'Sunset',grad:'linear-gradient(135deg,#f97316,#ec4899)',dark:false},
+    {id:'sunset-dark',name:'Sunset Night',grad:'linear-gradient(135deg,#c2410c,#9d174d)',dark:true},
+    {id:'royal',name:'Royal',grad:'linear-gradient(135deg,#7c3aed,#db2777)',dark:false},
+    {id:'royal-dark',name:'Royal Night',grad:'linear-gradient(135deg,#4c1d95,#831843)',dark:true},
+];
+let currentTheme = localStorage.getItem('cb_theme') || '';
+
+function applyTheme(id){
+    currentTheme = id; localStorage.setItem('cb_theme', id);
+    document.body.setAttribute('data-theme', id);
+    if(!id) document.body.removeAttribute('data-theme');
+    const th = THEMES.find(x => x.id === id);
+    document.getElementById('themeIcon').className = th&&th.dark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    buildThemeGrid();
+}
+function toggleTheme(){
+    const th = THEMES.find(x => x.id === currentTheme) || THEMES[0];
+    if(th.dark){ const light = THEMES.find(x => x.name === th.name.replace(' Night','')); applyTheme(light?light.id:''); }
+    else{ const dark = THEMES.find(x => x.name === th.name+' Night'); applyTheme(dark?dark.id:'dark'); }
+}
+function buildThemeGrid(){
+    const grid = document.getElementById('themeGrid'); if(!grid) return;
+    grid.innerHTML = '';
+    THEMES.forEach(th => {
+        const a = currentTheme===th.id ? 'active-theme' : '';
+        grid.innerHTML += `<div class="theme-card ${a}" onclick="applyTheme('${th.id}');document.getElementById('themeModal').style.display='none';"><span class="theme-swatch" style="background:${th.grad};"></span><span class="theme-name">${th.name}</span></div>`;
+    });
+}
+function openThemeModal(){ buildThemeGrid(); document.getElementById('themeModal').style.display='flex'; }
+function closeThemeModal(e){ if(!e || e.target===document.getElementById('themeModal')) document.getElementById('themeModal').style.display='none'; }
+
+const EMOJIS = ['😀','😎','🤩','😏','🥳','😤','🔥','⚡','💎','👑','🦁','🐯','🦊','🐺','🦅','🦋','🐉','🦄','🐸','🐻','🚀','⭐','🌙','☀️','🌊','🏆','🎯','🎲','🃏','🎭','💪','👊','🤜','✊','🙌','👏','🤙','🫡','🤟','✌️','🍀','🌺','🌸','🌻','🍁','❄️','🌈','💫','🎆','🎮','🕹️','🎰','🎪','🎠','🏅','🥇','🎖️','🏵️','🎗️'];
+let playerAvatars = ['😎','🔥','👑','🚀'];
+let emojiTargetIdx = -1;
+
+function openEmojiPicker(idx){
+    emojiTargetIdx = idx;
+    const grid = document.getElementById('emojiGrid');
+    grid.innerHTML = `<div class="emoji-grid-title">${t('chooseAvatar')}</div>`;
+    EMOJIS.forEach(em => {
+        const s = playerAvatars[idx]===em ? 'sel' : '';
+        grid.innerHTML += `<div class="emoji-opt ${s}" onclick="selectEmoji('${em}')">${em}</div>`;
+    });
+    document.getElementById('emojiOverlay').style.display = 'flex';
+}
+function selectEmoji(em){
+    playerAvatars[emojiTargetIdx] = em;
+    const sb = document.getElementById('setupAvatar'+emojiTargetIdx);
+    if(sb) sb.textContent = em;
+    ['exp','ach'].forEach(type => { const av = document.getElementById(`av-${type}-${emojiTargetIdx}`); if(av) av.textContent = em; });
+    document.getElementById('emojiOverlay').style.display = 'none';
+    localStorage.setItem('cb_avatars', JSON.stringify(playerAvatars));
+}
+function closeEmojiPicker(e){ if(!e || e.target===document.getElementById('emojiOverlay')) document.getElementById('emojiOverlay').style.display='none'; }
+
+let players = [];
+let scores = [[],[],[],[]];
+let expHistory = [[],[],[],[]];
+let achHistory = [[],[],[],[]];
+let currentRound = 1;
+let editingIndex = -1;
+let isExpectedLocked = false;
+let prevTotals = [0,0,0,0];
+window.currentUser = null;
+let isOnline = navigator.onLine;
+
+const clickSound = new Audio('https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3');
+const winSound   = new Audio('https://assets.mixkit.co/active_storage/sfx/1435/1435-preview.mp3');
+
+function getStorage(k, fb){ try{ return JSON.parse(localStorage.getItem(k)) || fb; } catch{ return fb; } }
+function playSound(s){ s.currentTime = 0; s.play().catch(() => {}); }
+
+/* ── Player name autocomplete (datalist) ─────────────────────────
+   Pulls every name ever used — from local match history AND from
+   Supabase (so suggestions work across devices too) — normalizes
+   the casing, de-duplicates, and fills the <datalist> options. ── */
+function getLocalKnownPlayerNames(){
+    const mh = getStorage('cb_match_history', []);
+    const names = [];
+    mh.forEach(m => (m.players || []).forEach(p => { if(p) names.push(p); }));
+    return names;
+}
+
+function renderKnownPlayersDatalist(names){
+    const dl = document.getElementById('knownPlayersList');
+    if(!dl) return;
+    const uniqueMap = new Map(); // lowercase key -> nicely-normalized display name
+    (names || []).forEach(n => {
+        if(!n) return;
+        const norm = normalizeName(n);
+        const key  = norm.toLowerCase();
+        if(!uniqueMap.has(key)) uniqueMap.set(key, norm);
+    });
+    dl.innerHTML = Array.from(uniqueMap.values())
+        .sort((a,b) => a.localeCompare(b))
+        .map(n => `<option value="${escHtml(n)}"></option>`).join('');
+}
+
+async function refreshKnownPlayersList(){
+    const local = getLocalKnownPlayerNames();
+    renderKnownPlayersDatalist(local);
+    if(typeof sbFetchKnownPlayerNames === 'function'){
+        const cloud = await sbFetchKnownPlayerNames();
+        if(cloud && cloud.length) renderKnownPlayersDatalist([...local, ...cloud]);
+    }
+}
+
+let toastTimer = null;
+function showToast(msg, type='info', duration=3000){
+    const el = document.getElementById('toast');
+    el.className = `toast ${type}`;
+    el.innerHTML = msg;
+    void el.offsetWidth;
+    el.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => el.classList.remove('show'), duration);
+}
+
+function setSyncStatus(state){
+    const dot = document.getElementById('syncDot');
+    dot.className = 'sync-dot';
+    if(state === 'offline') dot.classList.add('offline');
+    else if(state === 'syncing') dot.classList.add('syncing');
+}
+
+window.addEventListener('online', () => {
+    isOnline = true;
+    setSyncStatus('online');
+    showToast('🌐 Back online — syncing...', 'info');
+    syncOfflineQueue();
+});
+window.addEventListener('offline', () => {
+    isOnline = false;
+    setSyncStatus('offline');
+    showToast('📴 Offline — saves stored locally', 'warning');
+});
+
+function updateAuthUI(user){
+    const authSection    = document.getElementById('authSection');
+    const googleBtn      = document.getElementById('googleSignInBtn');
+    const guestBtn       = document.getElementById('guestSignInBtn');
+    const signedInInfo   = document.getElementById('signedInInfo');
+    const signedInName   = document.getElementById('signedInName');
+    const userInfo       = document.getElementById('userInfo');
+
+    if(user){
+        const name = user.isAnonymous ? 'Guest' : (user.displayName || user.email || 'User');
+        const avatarEl = user.photoURL
+            ? `<img class="user-avatar-small" src="${user.photoURL}" alt="">`
+            : `<span class="user-avatar-emoji">👤</span>`;
+        userInfo.style.display = 'flex';
+        userInfo.innerHTML = `${avatarEl}<span style="font-size:11px;max-width:70px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${name}</span>`;
+
+        if(authSection){
+            googleBtn.style.display = 'none';
+            guestBtn.style.display = 'none';
+            signedInInfo.style.display = 'block';
+            signedInName.textContent = `Signed in as ${name}`;
+        }
+    } else {
+        userInfo.style.display = 'none';
+        if(authSection){
+            googleBtn.style.display = 'flex';
+            guestBtn.style.display = 'block';
+            signedInInfo.style.display = 'none';
+        }
+    }
+}
+
+async function signInWithGoogle(){
+    if(!window.FB){ showToast('⚠️ Firebase not ready yet', 'warning'); return; }
+    try {
+        await window.FB.signInWithPopup(window.FB.auth, window.FB.googleProvider);
+        showToast('✅ Signed in with Google!', 'success');
+        loadCloudHistory();
+    } catch(err){
+        console.error('Google sign-in error:', err);
+        showToast('❌ Sign-in failed. Try guest mode.', 'error');
+    }
+}
+
+async function signInAsGuest(){
+    if(!window.FB){ showToast('⚠️ Firebase not ready yet', 'warning'); return; }
+    try {
+        await window.FB.signInAnonymously(window.FB.auth);
+        showToast('👤 Signed in as Guest', 'info');
+        loadCloudHistory();
+    } catch(err){
+        console.error('Guest sign-in error:', err);
+        showToast('❌ Could not sign in. Check connection.', 'error');
+    }
+}
+
+async function signOutUser(){
+    if(!window.FB) return;
+    try {
+        await window.FB.signOut(window.FB.auth);
+        showToast('👋 Signed out', 'info');
+        renderHistoryAndStats();
+    } catch(err){
+        console.error('Sign-out error:', err);
+    }
+}
+
+function getUserMatchesRef(){
+    if(!window.FB || !window.currentUser) return null;
+    const { db, collection } = window.FB;
+    return collection(db, 'users', window.currentUser.uid, 'matches');
+}
+
+function queueOfflineSave(matchData){
+    const q = getStorage('cb_offline_queue', []);
+    q.push(matchData);
+    localStorage.setItem('cb_offline_queue', JSON.stringify(q));
+}
+
+async function syncOfflineQueue(){
+    const q = getStorage('cb_offline_queue', []);
+    if(q.length === 0 || !window.currentUser || !window.FB) return;
+    setSyncStatus('syncing');
+    const ref = getUserMatchesRef();
+    let synced = 0;
+    for(const match of q){
+        try {
+            await window.FB.addDoc(ref, { ...match, syncedAt: window.FB.serverTimestamp() });
+            synced++;
+        } catch(err){
+            console.error('Sync error:', err);
+            break;
+        }
+    }
+    if(synced > 0){
+        const remaining = q.slice(synced);
+        localStorage.setItem('cb_offline_queue', JSON.stringify(remaining));
+        showToast(`☁️ Synced ${synced} offline match${synced>1?'es':''}!`, 'success');
+        loadCloudHistory();
+    }
+    setSyncStatus(isOnline ? 'online' : 'offline');
+}
+
+async function saveMatchToCloud(matchData){
+    if(!window.FB){
+        queueOfflineSave(matchData);
+        return;
+    }
+    if(!window.currentUser){
+        saveMatchLocalOnly(matchData);
+        return;
+    }
+    if(!isOnline){
+        queueOfflineSave(matchData);
+        showToast('📴 Saved locally — will sync when online', 'warning');
+        saveMatchLocalOnly(matchData);
+        return;
+    }
+
+    setSyncStatus('syncing');
+    try {
+        const ref = getUserMatchesRef();
+        await window.FB.addDoc(ref, {
+            ...matchData,
+            createdAt: window.FB.serverTimestamp()
+        });
+        setSyncStatus('online');
+        showToast('☁️ '+t('matchSaved'), 'success');
+        saveMatchLocalOnly(matchData);
+    } catch(err){
+        console.error('Firestore save error:', err);
+        setSyncStatus('offline');
+        queueOfflineSave(matchData);
+        saveMatchLocalOnly(matchData);
+        showToast('⚠️ Cloud save failed — stored locally', 'warning');
+    }
+}
+
+function saveMatchLocalOnly(matchData){
+    const mh = getStorage('cb_match_history', []);
+    mh.unshift(matchData);
+    if(mh.length > 50) mh.length = 50;
+    localStorage.setItem('cb_match_history', JSON.stringify(mh));
+}
+
+async function loadCloudHistory(){
+    if(!window.FB || !window.currentUser || !isOnline){
+        renderHistoryAndStats();
+        return;
+    }
+
+    const hC = document.getElementById('historyContent');
+    const sC = document.getElementById('statsContent');
+    if(hC) hC.innerHTML = `
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>`;
+    if(sC) sC.innerHTML = `
+        <div class="skeleton skeleton-card"></div>
+        <div class="skeleton skeleton-card"></div>`;
+
+    setSyncStatus('syncing');
+    try {
+        const ref = getUserMatchesRef();
+        const { query, orderBy, limit, getDocs } = window.FB;
+        const q = query(ref, orderBy('createdAt','desc'), limit(50));
+        const snapshot = await getDocs(q);
+
+        const matches = [];
+        snapshot.forEach(docSnap => {
+            const d = docSnap.data();
+            matches.push({
+                date: d.date || (d.createdAt?.toDate?.()?.toLocaleString() || 'Unknown'),
+                players: d.players || [],
+                avatars: d.avatars || [],
+                scores:  d.scores  || [],
+            });
+        });
+
+        setSyncStatus('online');
+        renderHistoryAndStatsFromData(matches);
+    } catch(err){
+        console.error('Firestore load error:', err);
+        setSyncStatus('offline');
+        showToast('⚠️ Could not load cloud history', 'error');
+        renderHistoryAndStats();
+    }
+}
+
+/* ─── INITIALIZATION ON LOAD ─── */
+window.onload = () => {
+    // Fire wipe transition smoothly on app load
+    triggerWipe();
+
+    playerAvatars = getStorage('cb_avatars', ['😎','🔥','👑','🚀']);
+    applyTheme(localStorage.getItem('cb_theme') || '');
+    updateOCBtn();
+    buildSetupRows();
+    refreshKnownPlayersList();
+    if(localStorage.getItem('cb_saved_game')){
+        document.getElementById('resumeBtn').style.display = 'block';
+        document.getElementById('startBtn').style.width = '48%';
+    }
+    setSyncStatus(isOnline ? 'online' : 'offline');
+    applyLanguage();
+    renderHistoryAndStats();
+};
+
+function buildSetupRows(){
+    const defaults = ['Akib','','',''];
+    const cont = document.getElementById('setupRows');
+    cont.innerHTML = '';
+    for(let i=0; i<4; i++){
+        cont.innerHTML += `<div class="setup-player-row"><button class="setup-avatar-btn" id="setupAvatar${i}" onclick="openEmojiPicker(${i})">${playerAvatars[i]}</button><input type="text" class="name-input" id="name${i+1}" list="knownPlayersList" autocomplete="off" value="${defaults[i]}" placeholder="Player ${i+1}"></div>`;
+    }
+}
+
+function switchTab(e, tabId){
+    document.querySelectorAll('.view-container').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById(tabId).classList.add('active');
+    e.currentTarget.classList.add('active');
+    moveNavIndicator(e.currentTarget);
+}
+
+function moveNavIndicator(btn){
+    const ind = document.getElementById('navTabsIndicator');
+    if(!ind || !btn) return;
+    ind.style.left  = btn.offsetLeft + 'px';
+    ind.style.width = btn.offsetWidth + 'px';
+}
+window.addEventListener('resize', () => {
+    const navTabs = document.getElementById('navTabs');
+    if(navTabs && navTabs.style.display !== 'none'){
+        moveNavIndicator(document.querySelector('.tab-btn.active'));
+    }
+});
+
+function getDealerIndex(round){ return (round-1) % 4; }
+
+/* ─── START GAME WITH WIPE TRANSITION ─── */
+function startGame(){
+    triggerWipe(() => {
+        players = [1,2,3,4].map(n => normalizeName(document.getElementById('name'+n).value) || 'Player '+n);
+        playerAvatars = [0,1,2,3].map(i => { const b=document.getElementById('setupAvatar'+i); return b?b.textContent:playerAvatars[i]; });
+        localStorage.setItem('cb_avatars', JSON.stringify(playerAvatars));
+        scores = [[],[],[],[]]; expHistory = [[],[],[],[]]; achHistory = [[],[],[],[]]; currentRound = 1;
+        window.manualMinusRounds = [];
+        window.customEntryRounds = [];
+        window.manualPlusRounds  = [];
+        saveGame(); 
+        initUI();
+    });
+}
+
+function resumeSavedGame(){
+    triggerWipe(() => {
+        const saved = getStorage('cb_saved_game', null); if(!saved) return;
+        players = saved.players || []; scores = saved.scores || [[],[],[],[]];
+        expHistory = saved.expHistory || [[],[],[],[]]; achHistory = saved.achHistory || [[],[],[],[]];
+        currentRound = saved.currentRound || 1;
+        window.manualMinusRounds = saved.manualMinusRounds || [];
+        window.customEntryRounds = saved.customEntryRounds || [];
+        window.manualPlusRounds  = saved.manualPlusRounds  || [];
+        initUI();
+    });
+}
+
+function initUI(){
+    document.getElementById('setupModal').style.display = 'none';
+    document.getElementById('navTabs').style.display = 'flex';
+    requestAnimationFrame(() => moveNavIndicator(document.querySelector('.tab-btn.active')));
+    const expDiv = document.getElementById('expectedInputs');
+    const achDiv = document.getElementById('achievedInputs');
+    expDiv.innerHTML = ''; achDiv.innerHTML = '';
+    let di = getDealerIndex(currentRound);
+    for(let i=0; i<4; i++){
+        let isDealer = i===di;
+        let dm = isDealer ? `<span class="dealer-badge"><span class="dealer-crown">👑</span> ${t('dealer')}</span>` : '';
+        document.getElementById('th'+i).innerHTML = `<span class="th-color-${i}">${playerAvatars[i]} ${players[i]}</span>${isDealer?`<span class="dealer-badge"><span class="dealer-crown">👑</span></span>`:''}`;
+        expDiv.innerHTML += `<div class="player-col${isDealer?' is-dealer':''}"><div class="player-avatar active-avatar" id="av-exp-${i}">${playerAvatars[i]}</div><span class="player-name">${players[i]} ${dm}</span><input type="number" min="0" max="13" class="score-input exp-input exp-active" id="exp${i}" oninput="validateExpected();autoNextFocus(this,'exp',${i})"></div>`;
+        achDiv.innerHTML += `<div class="player-col${isDealer?' is-dealer':''}"><div class="player-avatar" id="av-ach-${i}">${playerAvatars[i]}</div><span class="player-name">${players[i]}</span><input type="number" min="0" max="13" class="score-input ach-input" id="ach${i}" disabled oninput="validateAchieved();autoNextFocus(this,'ach',${i})"></div>`;
+    }
+    setTimeout(() => { const f=document.getElementById('exp0'); if(f) f.focus(); }, 100);
+    renderTable(); checkGameState(); applyLanguage();
+}
+
+function updateDealerIcon(){
+    let di = getDealerIndex(currentRound);
+    for(let i=0; i<4; i++){
+        let isDealer = i===di;
+        document.getElementById('th'+i).innerHTML = `<span class="th-color-${i}">${playerAvatars[i]} ${players[i]}</span>${isDealer?`<span class="dealer-badge"><span class="dealer-crown">👑</span></span>`:''}`;
+        const nm = document.querySelectorAll('#expectedInputs .player-name')[i];
+        let dmFull = isDealer ? `<span class="dealer-badge"><span class="dealer-crown">👑</span> ${t('dealer')}</span>` : '';
+        if(nm) nm.innerHTML = players[i]+' '+dmFull;
+        const expCols = document.querySelectorAll('#expectedInputs .player-col');
+        const achCols = document.querySelectorAll('#achievedInputs .player-col');
+        if(expCols[i]) expCols[i].classList.toggle('is-dealer', isDealer);
+        if(achCols[i]) achCols[i].classList.toggle('is-dealer', isDealer);
+    }
+}
+
+function autoNextFocus(inp, type, idx){
+    const val = inp.value;
+    if(val.length >= 1 && parseInt(val) >= 0 && parseInt(val) <= 9){
+        const next = document.getElementById(type+(idx+1));
+        if(next && !next.disabled) setTimeout(() => { next.focus(); next.select(); }, 80);
+    }
+}
+
+function validateExpected(){
+    let sum=0, count=0;
+    document.querySelectorAll('.exp-input').forEach(inp => { if(inp.value!==''){sum+=parseInt(inp.value||0);count++;} });
+    document.getElementById('expectedTotal').innerHTML = `${t('total')}: ${sum} / 13`;
+    const w = document.getElementById('expWarning');
+    if(count===4 && sum!==13){ w.innerHTML=`<i class="fa-solid fa-triangle-exclamation"></i> ${t('expWarn')} <span style="background:#f59e0b;color:#fff;padding:1px 8px;border-radius:6px;font-size:15px;">${sum}</span> ${t('expWarnSuffix')}`; w.style.display='block'; }
+    else w.style.display='none';
+}
+
+function validateAchieved(){
+    let sum=0, count=0;
+    document.querySelectorAll('.ach-input').forEach(inp => { if(inp.value!==''){sum+=parseInt(inp.value||0);count++;} });
+    document.getElementById('achievedTotal').innerHTML = `${t('total')}: ${sum} / 13`;
+    const w=document.getElementById('achWarning'); const sb=document.getElementById('submitRoundBtn');
+    if(count===4){
+        if(sum===13){ w.style.display='none'; sb.disabled=false; sb.innerHTML=`<i class="fa-solid fa-check-circle"></i> ${t('submitRound')} ${currentRound}`; }
+        else { w.innerHTML=`<i class="fa-solid fa-circle-xmark"></i> ${t('achWarn')} <span style="background:#ef4444;color:#fff;padding:1px 8px;border-radius:6px;font-size:15px;">${sum}</span>${t('achWarnSuffix')}`; w.style.display='block'; sb.disabled=true; }
+    } else { w.style.display='none'; sb.disabled=true; }
+}
+
+function updateTotalDisplay(){
+    let es=0; document.querySelectorAll('.exp-input').forEach(inp => { if(inp.value!=='') es+=parseInt(inp.value||0); });
+    document.getElementById('expectedTotal').innerHTML = `${t('total')}: ${es} / 13`;
+    let as=0; document.querySelectorAll('.ach-input').forEach(inp => { if(inp.value!=='') as+=parseInt(inp.value||0); });
+    document.getElementById('achievedTotal').innerHTML = `${t('total')}: ${as} / 13`;
+}
+
+function fixExpected(){
+    const fb = document.getElementById('fixBtn');
+    const expSection = document.getElementById('expectedInputs');
+    const achSection = document.getElementById('achievedInputs');
+
+    if(!isExpectedLocked){
+        let count=0; document.querySelectorAll('.exp-input').forEach(inp => { if(inp.value!=='') count++; });
+        if(count<4){ alert(t('fillAllCalls')); return; }
+        playSound(clickSound);
+        fb.classList.add('locking-btn'); setTimeout(() => fb.classList.remove('locking-btn'), 400);
+        document.querySelectorAll('.exp-input').forEach((inp,i) => {
+            setTimeout(() => { inp.classList.add('locking'); setTimeout(() => inp.classList.remove('locking'),350); }, i*60);
+            setTimeout(() => { inp.disabled=true; inp.classList.remove('exp-active'); }, i*60+200);
+        });
+        setTimeout(() => expSection.classList.add('locked-out'), 100);
+        setTimeout(() => {
+            document.querySelectorAll('.ach-input').forEach((inp,i) => {
+                setTimeout(() => { inp.disabled=false; inp.classList.add('ach-active'); inp.classList.add('unlocking'); setTimeout(() => inp.classList.remove('unlocking'),350); }, i*70);
+            });
+            document.querySelectorAll('[id^="av-exp-"]').forEach(a => a.classList.remove('active-avatar'));
+            document.querySelectorAll('[id^="av-ach-"]').forEach(a => a.classList.add('active-avatar'));
+            achSection.classList.add('unlocked-glow');
+            setTimeout(() => { const f=document.getElementById('ach0'); if(f) f.focus(); }, 300);
+        }, 250);
+        fb.textContent=t('unlock'); fb.setAttribute('data-key','unlock');
+        fb.classList.remove('btn-success'); fb.classList.add('btn-danger');
+        isExpectedLocked=true; validateAchieved();
+    } else {
+        playSound(clickSound);
+        fb.classList.add('locking-btn'); setTimeout(() => fb.classList.remove('locking-btn'), 400);
+        achSection.classList.remove('unlocked-glow');
+        document.querySelectorAll('.ach-input').forEach((inp,i) => {
+            setTimeout(() => { inp.classList.add('locking'); setTimeout(() => inp.classList.remove('locking'),350); }, i*60);
+            setTimeout(() => { inp.value=''; inp.disabled=true; inp.classList.remove('ach-active'); }, i*60+200);
+        });
+        setTimeout(() => {
+            expSection.classList.remove('locked-out');
+            document.querySelectorAll('.exp-input').forEach((inp,i) => {
+                setTimeout(() => { inp.disabled=false; inp.classList.add('exp-active'); inp.classList.add('unlocking'); setTimeout(() => inp.classList.remove('unlocking'),350); }, i*70);
+            });
+            document.querySelectorAll('[id^="av-exp-"]').forEach(a => a.classList.add('active-avatar'));
+            document.querySelectorAll('[id^="av-ach-"]').forEach(a => a.classList.remove('active-avatar'));
+            setTimeout(() => { const f=document.getElementById('exp0'); if(f) f.focus(); }, 300);
+        }, 150);
+        fb.textContent=t('lock'); fb.setAttribute('data-key','lock');
+        fb.classList.remove('btn-danger'); fb.classList.add('btn-success');
+        isExpectedLocked=false; validateAchieved();
+    }
+}
+
+function calcPoint(exp, ach){
+    if(ach < exp) return -exp;
+    if(ocRuleEnabled && ach >= exp + 2) return -exp;
+    return Number((exp + ((ach - exp) * 0.1)).toFixed(1));
+}
+
+function openManualMinusModal(){
+    if(currentRound <= 1){ alert(t('gameNotStarted')); return; }
+    const cont = document.getElementById('manualMinusRows');
+    cont.innerHTML = '';
+    for(let i=0; i<4; i++){
+        cont.innerHTML += `
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-color);border:2px solid var(--border-color);border-radius:12px;transition:.2s;" id="mmRow${i}">
+            <div style="font-size:24px;">${playerAvatars[i]}</div>
+            <div style="flex:1;font-weight:700;font-size:14px;color:var(--text-main);">${players[i]}</div>
+            <input type="number" min="0" max="99" id="mmVal${i}" placeholder="0"
+                style="width:64px;border:2px solid var(--border-color);background:var(--card-bg);color:var(--text-main);border-radius:10px;text-align:center;font-size:18px;font-weight:800;padding:8px 4px;outline:none;"
+                oninput="highlightMMRow(${i})" onfocus="highlightMMRow(${i})">
+        </div>`;
+    }
+    document.getElementById('manualMinusModal').style.display = 'flex';
+}
+
+function highlightMMRow(i){
+    for(let j=0; j<4; j++){
+        const row = document.getElementById('mmRow'+j);
+        const val = document.getElementById('mmVal'+j);
+        if(!row || !val) continue;
+        const v = parseInt(val.value||0);
+        if(j===i && v>0){
+            row.style.borderColor = 'var(--danger)';
+            row.style.background = 'rgba(239,68,68,.08)';
+        } else if(v>0){
+            row.style.borderColor = 'var(--danger)';
+            row.style.background = 'rgba(239,68,68,.06)';
+        } else {
+            row.style.borderColor = 'var(--border-color)';
+            row.style.background = 'var(--bg-color)';
+        }
+    }
+}
+
+function closeManualMinusModal(){
+    document.getElementById('manualMinusModal').style.display = 'none';
+}
+
+function applyManualMinus(){
+    let anyMinus = false;
+    for(let i=0; i<4; i++){
+        const v = parseInt(document.getElementById('mmVal'+i).value||0);
+        if(v > 0){
+            expHistory[i].push(0);
+            achHistory[i].push(0);
+            scores[i].push(-v);
+            anyMinus = true;
+        } else {
+            expHistory[i].push(null);
+            achHistory[i].push(null);
+            scores[i].push(0);
+        }
+    }
+    if(!anyMinus){ closeManualMinusModal(); return; }
+    if(!window.manualMinusRounds) window.manualMinusRounds = [];
+    window.manualMinusRounds.push(currentRound - 1);
+    currentRound++;
+    playSound(clickSound);
+    saveGame();
+    renderTable(true);
+    closeManualMinusModal();
+    showToast('⚠️ Manual minus applied!', 'warning');
+}
+
+if(!window.manualPlusRounds) window.manualPlusRounds = [];
+
+function openManualPlusModal(){
+    if(currentRound <= 1){ alert(t('gameNotStarted')); return; }
+    const cont = document.getElementById('manualPlusRows');
+    cont.innerHTML = '';
+    for(let i=0; i<4; i++){
+        cont.innerHTML += `
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px;background:var(--bg-color);border:2px solid var(--border-color);border-radius:12px;transition:.2s;" id="mpRow${i}">
+            <div style="font-size:24px;">${playerAvatars[i]}</div>
+            <div style="flex:1;font-weight:700;font-size:14px;color:var(--text-main);">${players[i]}</div>
+            <input type="number" min="0" max="99" id="mpVal${i}" placeholder="0"
+                style="width:64px;border:2px solid var(--border-color);background:var(--card-bg);color:var(--text-main);border-radius:10px;text-align:center;font-size:18px;font-weight:800;padding:8px 4px;outline:none;"
+                oninput="highlightMPRow(${i})" onfocus="highlightMPRow(${i})">
+        </div>`;
+    }
+    document.getElementById('manualPlusModal').style.display = 'flex';
+}
+
+function highlightMPRow(i){
+    for(let j=0; j<4; j++){
+        const row = document.getElementById('mpRow'+j);
+        const val = document.getElementById('mpVal'+j);
+        if(!row || !val) continue;
+        const v = parseInt(val.value||0);
+        if(j===i && v>0){
+            row.style.borderColor = 'var(--success)';
+            row.style.background = 'rgba(16,185,129,.1)';
+        } else if(v>0){
+            row.style.borderColor = 'var(--success)';
+            row.style.background = 'rgba(16,185,129,.06)';
+        } else {
+            row.style.borderColor = 'var(--border-color)';
+            row.style.background = 'var(--bg-color)';
+        }
+    }
+}
+
+function closeManualPlusModal(){
+    document.getElementById('manualPlusModal').style.display = 'none';
+}
+
+function applyManualPlus(){
+    let anyPlus = false;
+    for(let i=0; i<4; i++){
+        const v = parseInt(document.getElementById('mpVal'+i).value||0);
+        if(v > 0){
+            expHistory[i].push(0);
+            achHistory[i].push(0);
+            scores[i].push(v);
+            anyPlus = true;
+        } else {
+            expHistory[i].push(null);
+            achHistory[i].push(null);
+            scores[i].push(0);
+        }
+    }
+    if(!anyPlus){ closeManualPlusModal(); return; }
+    if(!window.manualPlusRounds) window.manualPlusRounds = [];
+    window.manualPlusRounds.push(currentRound - 1);
+    currentRound++;
+    playSound(clickSound);
+    saveGame();
+    renderTable(true);
+    closeManualPlusModal();
+    showToast('✅ Manual plus applied!', 'success');
+}
+
+const CE_COLORS = ['#818cf8','#38bdf8','#34d399','#fb923c'];
+
+function openCustomEntryModal(){
+    if(currentRound <= 1){ alert(t('gameNotStarted')); return; }
+    const cont = document.getElementById('customEntryRows');
+    cont.innerHTML = '';
+    for(let i=0; i<4; i++){
+        cont.innerHTML += `
+        <div style="display:flex;align-items:center;gap:12px;padding:12px 14px;
+            background:var(--bg-color);border:2px solid var(--border-color);
+            border-radius:14px;transition:border-color .2s,background .2s;" id="ceRow${i}">
+            <span style="font-size:26px;line-height:1;">${playerAvatars[i]}</span>
+            <span style="flex:1;font-weight:800;font-size:15px;color:${CE_COLORS[i]};">${players[i]}</span>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:3px;">
+                <span style="font-size:9px;font-weight:700;color:var(--text-muted);letter-spacing:.5px;">SCORE</span>
+                <input type="number" id="ceVal${i}" value="0" placeholder="0"
+                    style="width:72px;border:2px solid ${CE_COLORS[i]};background:var(--card-bg);
+                    color:var(--text-main);border-radius:10px;text-align:center;
+                    font-size:22px;font-weight:900;padding:8px 4px;outline:none;"
+                    oninput="updateCERow(${i})">
+                <span id="ceSign${i}" style="font-size:11px;font-weight:700;color:var(--text-muted);height:16px;"></span>
+            </div>
+        </div>`;
+    }
+    document.getElementById('customEntryModal').style.display = 'flex';
+    setTimeout(() => { const f = document.getElementById('ceVal0'); if(f){f.select();f.focus();} }, 100);
+}
+
+function updateCERow(i){
+    const v = parseFloat(document.getElementById('ceVal'+i)?.value || 0);
+    const sign = document.getElementById('ceSign'+i);
+    const row  = document.getElementById('ceRow'+i);
+    if(!sign || !row) return;
+    if(v > 0){
+        sign.textContent = `+${v}`;
+        sign.style.color = '#10b981';
+        row.style.borderColor = '#10b981';
+        row.style.background = 'rgba(16,185,129,.06)';
+    } else if(v < 0){
+        sign.textContent = `${v}`;
+        sign.style.color = '#ef4444';
+        row.style.borderColor = '#ef4444';
+        row.style.background = 'rgba(239,68,68,.06)';
+    } else {
+        sign.textContent = '';
+        row.style.borderColor = 'var(--border-color)';
+        row.style.background = 'var(--bg-color)';
+    }
+}
+
+function closeCustomEntryModal(){
+    document.getElementById('customEntryModal').style.display = 'none';
+}
+
+function submitCustomEntry(){
+    for(let i=0; i<4; i++){
+        const raw = document.getElementById('ceVal'+i)?.value;
+        const v = raw === '' ? 0 : parseFloat(raw);
+        expHistory[i].push('C');
+        achHistory[i].push('C');
+        scores[i].push(Number(v.toFixed(1)));
+    }
+    if(!window.customEntryRounds) window.customEntryRounds = [];
+    window.customEntryRounds.push(currentRound - 1);
+    playSound(clickSound);
+    currentRound++;
+    saveGame(); renderTable(true); resetInputs(); updateDealerIcon(); checkGameState();
+    closeCustomEntryModal();
+    showToast('✅ Custom scores applied!', 'success');
+}
+
+function submitRound(){
+    let overCallPlayers = [];
+    for(let i=0; i<4; i++){
+        let exp = parseInt(document.getElementById('exp'+i).value||0);
+        let ach = parseInt(document.getElementById('ach'+i).value||0);
+        expHistory[i].push(exp); achHistory[i].push(ach); scores[i].push(calcPoint(exp,ach));
+        if(ach >= exp + 2) overCallPlayers.push(players[i]);
+    }
+    playSound(clickSound); currentRound++;
+    saveGame(); renderTable(true); resetInputs(); updateDealerIcon(); checkGameState();
+    if(overCallPlayers.length > 0 && ocRuleEnabled){
+        setTimeout(() => showToast(`⚠️ OC Penalty: ${overCallPlayers.join(', ')} — call minus হয়েছে!`, 'warning', 4000), 400);
+    }
+}
+
+function undoLastRound(){
+    if(currentRound<=1){ alert(t('undoNone')); return; }
+    if(confirm(t('undoConfirm'))){
+        for(let i=0; i<4; i++){ scores[i].pop(); expHistory[i].pop(); achHistory[i].pop(); }
+        currentRound--;
+        if(!window.manualMinusRounds) window.manualMinusRounds = [];
+        const mmIdx = window.manualMinusRounds.indexOf(currentRound - 1);
+        if(mmIdx !== -1) window.manualMinusRounds.splice(mmIdx, 1);
+        
+        if(!window.customEntryRounds) window.customEntryRounds = [];
+        const ceIdx = window.customEntryRounds.indexOf(currentRound - 1);
+        if(ceIdx !== -1) window.customEntryRounds.splice(ceIdx, 1);
+        
+        if(!window.manualPlusRounds) window.manualPlusRounds = [];
+        const mpIdx = window.manualPlusRounds.indexOf(currentRound - 1);
+        if(mpIdx !== -1) window.manualPlusRounds.splice(mpIdx, 1);
+        
+        saveGame(); renderTable(); resetInputs(); updateDealerIcon(); checkGameState();
+    }
+}
+
+function openEditModal(roundIdx){
+    editingIndex = roundIdx;
+    document.getElementById('editRoundNum').innerText = roundIdx+1;
+    const expDiv = document.getElementById('editExpectedInputs');
+    const achDiv = document.getElementById('editAchievedInputs');
+    expDiv.innerHTML = ''; achDiv.innerHTML = '';
+    for(let i=0; i<4; i++){
+        expDiv.innerHTML += `<div class="player-col"><span class="player-name">${playerAvatars[i]} ${players[i]}</span><input type="number" min="0" max="13" class="score-input" id="editExp${i}" value="${expHistory[i][roundIdx]}"></div>`;
+        achDiv.innerHTML += `<div class="player-col"><span class="player-name">${playerAvatars[i]} ${players[i]}</span><input type="number" min="0" max="13" class="score-input" id="editAch${i}" value="${achHistory[i][roundIdx]}"></div>`;
+    }
+    document.getElementById('editModal').style.display = 'flex';
+}
+function closeEditModal(){ document.getElementById('editModal').style.display='none'; }
+function saveEditedRound(){
+    let total=0; for(let i=0; i<4; i++) total+=parseInt(document.getElementById('editAch'+i).value||0);
+    if(total!==13){ alert(t('achMustBe13')); return; }
+    for(let i=0; i<4; i++){
+        let ne=parseInt(document.getElementById('editExp'+i).value||0);
+        let na=parseInt(document.getElementById('editAch'+i).value||0);
+        expHistory[i][editingIndex]=ne; achHistory[i][editingIndex]=na; scores[i][editingIndex]=calcPoint(ne,na);
+    }
+    saveGame(); renderTable(); closeEditModal();
+}
+
+function resetInputs(){
+    document.querySelectorAll('.exp-input').forEach(inp => { inp.value=''; inp.disabled=false; inp.classList.add('exp-active'); });
+    document.querySelectorAll('.ach-input').forEach(inp => { inp.value=''; inp.disabled=true; inp.classList.remove('ach-active'); });
+    document.querySelectorAll('[id^="av-exp-"]').forEach(a => a.classList.add('active-avatar'));
+    document.querySelectorAll('[id^="av-ach-"]').forEach(a => a.classList.remove('active-avatar'));
+    const expSection = document.getElementById('expectedInputs');
+    const achSection = document.getElementById('achievedInputs');
+    if(expSection) expSection.classList.remove('locked-out');
+    if(achSection) achSection.classList.remove('unlocked-glow');
+    const fb = document.getElementById('fixBtn');
+    fb.textContent=t('lock'); fb.setAttribute('data-key','lock');
+    fb.classList.remove('btn-danger'); fb.classList.add('btn-success'); fb.disabled=false;
+    isExpectedLocked=false;
+    document.getElementById('submitRoundBtn').disabled=true;
+    document.getElementById('expWarning').style.display='none';
+    document.getElementById('achWarning').style.display='none';
+    document.getElementById('expectedTotal').innerHTML=`${t('total')}: 0 / 13`;
+    document.getElementById('achievedTotal').innerHTML=`${t('total')}: 0 / 13`;
+    setTimeout(() => { const f=document.getElementById('exp0'); if(f) f.focus(); }, 150);
+}
+
+function checkGameState(){ }
+
+function triggerPop(el){
+    el.classList.remove('pop'); void el.offsetWidth; el.classList.add('pop');
+}
+
+function renderTable(animate=false){
+    const tbody = document.getElementById('tableBody');
+    tbody.innerHTML = '';
+    let totals = [0,0,0,0];
+    const rankLabels = LANG[currentLang].rankLabels;
+    const mmRounds = window.manualMinusRounds || [];
+    const ceRounds = window.customEntryRounds || [];
+    const mpRounds = window.manualPlusRounds || [];
+
+    for(let r=0; r<currentRound-1; r++){
+        const isMMRound = mmRounds.includes(r);
+        const isCERound = ceRounds.includes(r);
+        const isMPRound = mpRounds.includes(r);
+        let row;
+        if(isMMRound) row = `<tr><td style="color:var(--danger);font-weight:900;">⚠️</td>`;
+        else if(isCERound) row = `<tr><td style="color:#f97316;font-weight:900;">✏️</td>`;
+        else if(isMPRound) row = `<tr><td style="color:var(--success);font-weight:900;">➕</td>`;
+        else row = `<tr><td>R${r+1}</td>`;
+
+        for(let p=0; p<4; p++){
+            totals[p] += scores[p][r];
+            const sc = scores[p][r];
+            if(isMMRound){
+                if(sc === 0){
+                    row += `<td><span class="score-cell" style="color:var(--text-muted)" id="sc-${r}-${p}">—</span></td>`;
+                } else {
+                    row += `<td><span class="score-cell" style="color:#ef4444;font-weight:900;" id="sc-${r}-${p}">${sc.toFixed(1)}</span></td>`;
+                }
+            } else if(isMPRound){
+                if(sc === 0){
+                    row += `<td><span class="score-cell" style="color:var(--text-muted)" id="sc-${r}-${p}">—</span></td>`;
+                } else {
+                    row += `<td><span class="score-cell" style="color:#10b981;font-weight:900;" id="sc-${r}-${p}">+${sc.toFixed(1)}</span></td>`;
+                }
+            } else if(isCERound){
+                const col = sc >= 0 ? 'color:#10b981' : 'color:#ef4444';
+                row += `<td><span class="score-cell" style="${col};font-weight:900;" id="sc-${r}-${p}">${sc >= 0 ? '+' : ''}${sc.toFixed(1)}</span></td>`;
+            } else {
+                const isOverCall = ocRuleEnabled && achHistory[p][r] !== undefined && expHistory[p][r] !== undefined && achHistory[p][r] >= expHistory[p][r] + 2;
+                const col = sc >= 0 ? 'color:#10b981' : 'color:#ef4444';
+                const badge = isOverCall ? `<span title="OC penalty" style="font-size:9px;background:#f59e0b;color:#fff;padding:1px 4px;border-radius:4px;margin-left:2px;">OC</span>` : '';
+                row += `<td><span class="score-cell" style="${col}" id="sc-${r}-${p}">${sc.toFixed(1)}</span>${badge}</td>`;
+            }
+        }
+        if(isMMRound || isCERound || isMPRound){
+            row += `<td>—</td></tr>`;
+        } else {
+            row += `<td><button class="btn-outline btn-small" onclick="openEditModal(${r})"><i class="fa-solid fa-pen"></i></button></td></tr>`;
+        }
+        tbody.innerHTML += row;
+    }
+
+    let maxT = Math.max(...totals);
+    let totalRow = `<tr class="total-row"><td>${t('totalLabel')}</td>`;
+    let rankRow  = `<tr><td>${t('round')}</td>`;
+    let sortedT  = [...totals].sort((a,b) => b-a);
+    for(let p=0; p<4; p++){
+        totalRow += `<td class="${totals[p]===maxT?'winner-cell':''}"><span class="total-cell" id="tot-${p}">${totals[p].toFixed(1)}</span></td>`;
+        let rank = sortedT.indexOf(totals[p])+1;
+        let bc = rank===1?'rank-1':rank===2?'rank-2':rank===3?'rank-3':'';
+        rankRow += `<td>${currentRound>1?`<span class="rank-badge ${bc}">${rankLabels[rank-1]||rank}</span>`:'-'}</td>`;
+    }
+    totalRow += `<td>-</td></tr>`;
+    rankRow  += `<td>-</td></tr>`;
+    tbody.innerHTML += totalRow+rankRow;
+
+    if(animate){
+        const newR = currentRound-2;
+        for(let p=0; p<4; p++){
+            const sc = document.getElementById(`sc-${newR}-${p}`);
+            if(sc) setTimeout(() => triggerPop(sc), p*80);
+        }
+        for(let p=0; p<4; p++){
+            if(totals[p] !== prevTotals[p]){
+                const tc = document.getElementById('tot-'+p);
+                if(tc) setTimeout(() => triggerPop(tc), 300+p*80);
+            }
+        }
+    }
+    prevTotals = [...totals];
+}
+
+function saveGame(){
+    localStorage.setItem('cb_saved_game', JSON.stringify({players,scores,expHistory,achHistory,currentRound,manualMinusRounds:window.manualMinusRounds||[],customEntryRounds:window.customEntryRounds||[],manualPlusRounds:window.manualPlusRounds||[]}));
+}
+
+function resetFullGame(){
+    if(confirm(t('restartConfirm'))){ localStorage.removeItem('cb_saved_game'); location.reload(); }
+}
+
+async function finishAndSaveGame(){
+    if(currentRound<=1){ alert(t('gameNotStarted')); return; }
+    if(!confirm(t('finishConfirm'))) return;
+
+    let ft=[0,0,0,0];
+    for(let p=0; p<4; p++) for(let r=0; r<currentRound-1; r++) ft[p]+=scores[p][r];
+
+    const maxScore = Math.max(...ft);
+    const winner   = players[ft.indexOf(maxScore)];
+
+    const matchData = {
+        date:        new Date().toLocaleString(),
+        players:     [...players],
+        avatars:     [...playerAvatars],
+        scores:      [...ft],
+        expHistory:  expHistory.map(a=>[...a]),
+        achHistory:  achHistory.map(a=>[...a]),
+        winner,
+        totalRounds: currentRound-1,
+        timestamp:   Date.now()
+    };
+
+    playSound(winSound);
+    const finBtn = document.querySelector('[onclick="finishAndSaveGame()"]');
+    if(finBtn){ finBtn.disabled=true; finBtn.textContent='Saving...'; }
+
+    // ── Save to Firebase (existing) ──────────────────────────
+    await saveMatchToCloud(matchData);
+
+    // ── Save to Supabase (new) ───────────────────────────────
+    if(typeof sbSaveMatch === 'function'){
+        try { await sbSaveMatch(matchData); }
+        catch(e){ console.warn('Supabase save error:', e); }
+    }
+
+    localStorage.removeItem('cb_saved_game');
+    if(finBtn){ finBtn.disabled=false; finBtn.textContent=t('finish'); }
+    setTimeout(() => location.reload(), 1500);
+}
+
+function renderHistoryAndStatsFromData(matches){
+    const hC = document.getElementById('historyContent');
+    const sC = document.getElementById('statsContent');
+    if(!hC || !sC) return;
+
+    if(matches.length === 0){
+        hC.innerHTML = `<p style="text-align:center;color:var(--text-muted);padding:30px 0;">${t('noMatches')}</p>`;
+        sC.innerHTML = `<p style="text-align:center;color:var(--text-muted);grid-column:1/-1;">${t('noStats')}</p>`;
+        return;
+    }
+
+    hC.innerHTML = '';
+    let sd = {};
+    matches.forEach((m, mi) => {
+        let maxS = Math.max(...m.scores);
+        let winners = m.scores.filter(s => s===maxS).length;
+        let html = `<div class="history-card">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+                <p style="color:var(--text-muted);font-size:11px;"><i class="fa-solid fa-calendar" style="color:var(--primary);margin-right:4px;"></i>${m.date}</p>
+                ${m.totalRounds ? `<span style="font-size:10px;background:var(--primary);color:#fff;padding:2px 8px;border-radius:10px;">${m.totalRounds} rounds</span>` : ''}
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">`;
+        m.players.forEach((p,i) => {
+            let iW = m.scores[i]===maxS;
+            let av = (m.avatars&&m.avatars[i]) || '😎';
+            let scoreColor = iW ? '#f59e0b' : m.scores[i] >= 0 ? '#10b981' : '#ef4444';
+            html += `<div style="display:flex;align-items:center;gap:6px;padding:6px 10px;border-radius:10px;background:${iW?'rgba(245,158,11,.1)':'var(--bg-color)'};border:1px solid ${iW?'rgba(245,158,11,.3)':'var(--border-color)'};">
+                <span style="font-size:18px;">${av}</span>
+                <div>
+                    <div style="font-size:12px;font-weight:800;color:var(--text-main);">${iW?'🏆 ':''}${p}</div>
+                    <div style="font-size:13px;font-weight:900;color:${scoreColor};">${m.scores[i].toFixed(1)}</div>
+                </div>
+            </div>`;
+            if(!sd[p]) sd[p]={wins:0,high:-999,low:999,matches:0,totalScore:0};
+            sd[p].matches++;
+            if(winners===1 && iW) sd[p].wins++;
+            if(m.scores[i] > sd[p].high) sd[p].high = m.scores[i];
+            if(m.scores[i] < sd[p].low) sd[p].low = m.scores[i];
+            sd[p].totalScore += m.scores[i];
+        });
+        html += `</div></div>`;
+        hC.innerHTML += html;
+    });
+
+    sC.innerHTML = '';
+    for(let pl in sd){
+        const avg = (sd[pl].totalScore / sd[pl].matches).toFixed(1);
+        const wr = Math.round((sd[pl].wins / sd[pl].matches) * 100);
+        sC.innerHTML += `<div class="stat-box">
+            <h3>${pl}</h3>
+            <p style="color:var(--text-muted);font-size:13px;margin-bottom:5px;">${t('matches')}: <b>${sd[pl].matches}</b></p>
+            <p style="color:var(--success);font-size:13px;margin-bottom:5px;">${t('wins')}: <b>${sd[pl].wins}</b> <span style="font-size:11px;">(${wr}%)</span></p>
+            <p style="color:var(--warning);font-size:13px;margin-bottom:5px;">${t('highest')}: <b>${sd[pl].high.toFixed(1)}</b></p>
+            <p style="color:var(--danger);font-size:13px;margin-bottom:5px;">Lowest: <b>${sd[pl].low.toFixed(1)}</b></p>
+            <p style="color:var(--primary);font-size:13px;">Avg: <b>${avg >= 0 ? '+' : ''}${avg}</b></p>
+        </div>`;
+    }
+}
+
+/* ═══════════════════════════════════════════════
+   PASSWORD-PROTECTED RESET FUNCTIONS
+   Password: akib
+   ═══════════════════════════════════════════════ */
+const RESET_PASS = 'akib';
+let pendingResetType = null;
+
+function openResetModal(type){
+    pendingResetType = type;
+    const desc = document.getElementById('resetModalDesc');
+    if(type === 'history') desc.textContent = 'সব Match History মুছে ফেলবে। ফিরে পাওয়া যাবে না!';
+    else if(type === 'profiles') desc.textContent = 'সব Player Profiles ও Stats মুছে ফেলবে। ফিরে পাওয়া যাবে না!';
+    else desc.textContent = '⚠️ সব Match History + Player Profiles সব কিছু মুছে ফেলবে!';
+    document.getElementById('resetPassInput').value = '';
+    document.getElementById('resetPassError').style.display = 'none';
+    document.getElementById('resetModal').style.display = 'flex';
+    setTimeout(() => document.getElementById('resetPassInput').focus(), 200);
+}
+
+function closeResetModal(e){
+    if(!e || e.target === document.getElementById('resetModal'))
+        document.getElementById('resetModal').style.display = 'none';
+}
+
+async function confirmReset(){
+    const entered = document.getElementById('resetPassInput').value;
+    const errEl   = document.getElementById('resetPassError');
+    if(entered !== RESET_PASS){
+        errEl.style.display = 'block';
+        document.getElementById('resetPassInput').value = '';
+        document.getElementById('resetPassInput').focus();
+        // Shake animation
+        const inp = document.getElementById('resetPassInput');
+        inp.style.animation = 'shake .4s';
+        setTimeout(() => inp.style.animation = '', 400);
+        return;
+    }
+    errEl.style.display = 'none';
+    document.getElementById('resetModal').style.display = 'none';
+
+    if(pendingResetType === 'history' || pendingResetType === 'all'){
+        // Delete local history
+        localStorage.removeItem('cb_match_history');
+        localStorage.removeItem('cb_offline_queue');
+        // Delete Supabase matches
+        if(sbReady && SB){
+            try {
+                await SB.from('matches').delete().neq('id', -1);
+                showToast('🗑️ Match history deleted!', 'warning', 3000);
+            } catch(e){ console.warn('Supabase history delete error', e); }
+        }
+    }
+
+    if(pendingResetType === 'profiles' || pendingResetType === 'all'){
+        // Delete Supabase player_stats
+        if(sbReady && SB){
+            try {
+                await SB.from('player_stats').delete().neq('id', -1);
+                showToast('🗑️ Player profiles deleted!', 'warning', 3000);
+            } catch(e){ console.warn('Supabase profiles delete error', e); }
+        }
+    }
+
+    if(pendingResetType === 'all'){
+        localStorage.removeItem('cb_match_history');
+        localStorage.removeItem('cb_offline_queue');
+        showToast('💥 Full reset complete!', 'error', 3000);
+    }
+
+    setTimeout(() => sbLoadProfiles(), 1200);
+    pendingResetType = null;
+}
+
+function renderHistoryAndStats(){
+    const mh = getStorage('cb_match_history', []);
+    renderHistoryAndStatsFromData(mh);
+}
+</script>
 </body>
 </html>
